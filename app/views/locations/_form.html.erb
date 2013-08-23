@@ -4,7 +4,7 @@ function showPosition(position)
 var latlon=position.coords.latitude+","+position.coords.longitude;
 
 var img_url="http://maps.googleapis.com/maps/api/staticmap?center="
-+latlon+"&zoom=14&size=400x300&sensor=false";
++latlon+"&zoom=14&size=400x300&sensor=false&markers="+latlon;
     var txtLatitude = document.getElementById("location_latitude");
     var txtLongitude = document.getElementById("location_longitude");
     txtLatitude.value = position.coords.latitude;
