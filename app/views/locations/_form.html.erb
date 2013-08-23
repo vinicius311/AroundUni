@@ -1,13 +1,23 @@
 <script>
+function showPosition(position)
+{
+var latlon=position.coords.latitude+","+position.coords.longitude;
+
+var img_url="http://maps.googleapis.com/maps/api/staticmap?center="
++latlon+"&zoom=14&size=400x300&sensor=false";
+
+document.getElementById("mapholder").innerHTML="<img src='"+img_url+"'>";
+}
 function getLocation()
   {
   if (navigator.geolocation)
     {
     navigator.geolocation.getCurrentPosition(showPosition);
+    //navigator.geolocation.getCurrentPosition(showPosition2);
     }
   else{x.innerHTML="Geolocation is not supported by this browser.";}
   }
-function showPosition(position)
+function showPosition2(position)
   {
     var txtLatitude = document.getElementById("location_latitude");
     var txtLongitude = document.getElementById("location_longitude");
@@ -16,6 +26,9 @@ function showPosition(position)
 	
   }
 </script>
+<p id="demo">Click the button to get your position:</p>
+
+<div id="mapholder"></div>
 <button onclick="getLocation()">Try It</button>
 <%= form_for(@location) do |f| %>
   <% if @location.errors.any? %>
