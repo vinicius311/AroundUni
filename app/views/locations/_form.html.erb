@@ -1,0 +1,49 @@
+<script>
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(showPosition);
+    }
+  else{x.innerHTML="Geolocation is not supported by this browser.";}
+  }
+function showPosition(position)
+  {
+    var txtLatitude = document.getElementById("location_latitude");
+    var txtLongitude = document.getElementById("location_longitude");
+    txtLatitude.value = position.coords.latitude;
+    txtLongitude.value = position.coords.longitude;
+	
+  }
+</script>
+<button onclick="getLocation()">Try It</button>
+<%= form_for(@location) do |f| %>
+  <% if @location.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
+
+      <ul>
+      <% @location.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+  <div class="field">
+    <label for="location_latitude">Longitude</label><br>
+    <input id="location_latitude" name="location[latitude]" type="text">
+  </div>
+  <div class="field">
+    <label for="location_longitude">Longitude</label><br>
+    <input id="location_longitude" name="location[longitude]" type="text">
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
