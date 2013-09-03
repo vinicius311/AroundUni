@@ -4,7 +4,7 @@ class CreateEvents < ActiveRecord::Migration
       t.string :name
       t.string :description
       t.datetime :start_time
-      t.date_time :end_time
+      t.datetime :end_time
       t.integer :location_id
       t.integer :owner
       t.string :address
