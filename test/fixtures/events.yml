@@ -2,20 +2,20 @@
 
 one:
   name: MyString
-  description: MyString
-  start_time: 2013-09-02 21:34:16
-  end_time: 
-  location_id: 1
-  owner: 1
-  address: MyString
-  verification_count: 1
+  start_time: 2013-09-27 00:47:26
+  end_time: 2013-09-27 00:47:26
+  description: MyText
+  constraints: MyString
+  geolocation: 
+  user: 
+  type: 
 
 two:
   name: MyString
-  description: MyString
-  start_time: 2013-09-02 21:34:16
-  end_time: 
-  location_id: 1
-  owner: 1
-  address: MyString
-  verification_count: 1
+  start_time: 2013-09-27 00:47:26
+  end_time: 2013-09-27 00:47:26
+  description: MyText
+  constraints: MyString
+  geolocation: 
+  user: 
+  type: 

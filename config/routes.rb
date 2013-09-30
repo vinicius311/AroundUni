@@ -1,4 +1,6 @@
 AroundUni::Application.routes.draw do
+  resources :geolocations
+
   resources :events
 
   resources :locations

@@ -6,6 +6,7 @@ gem 'rails', '4.0.0'
 #Geocoder geolocation gem
 gem 'geocoder'
 
+gem 'rb-readline', '~> 0.4.2'
 #Gem that allows use of attributes by geocoder (security may be compromised)
 gem 'protected_attributes'
 
