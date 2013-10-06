@@ -1,0 +1,3 @@
+class SpecialEvent < Event
+  
+end

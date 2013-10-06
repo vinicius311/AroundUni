@@ -6,3 +6,11 @@ class Event < ActiveRecord::Base
  
  accepts_nested_attributes_for :geolocation
 end
+
+class SpecialEvent < Event
+  
+end
+
+class RegularEvent < Event
+  
+end
