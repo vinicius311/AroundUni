@@ -13,7 +13,7 @@
   </thead>
 
   <tbody>
-    <% @special_event.each do |special_event| %>
+    <% @special_events.each do |special_event| %>
       <tr>
         <td><%= special_event.name %></td>
         <td><%= special_event.description %></td>
@@ -27,5 +27,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Geolocation', new_geolocation_path %>
