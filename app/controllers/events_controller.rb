@@ -7,14 +7,10 @@ class EventsController < ApplicationController
   def index
     @events = Event.all
   end
-  def create
-    
+  
+  def create    
   #  render text: params[:post].inspect
     @event = Event.new(event_params)
-    puts @event.geolocation
-    puts "dhasiudhaisudhasiudhausidhiuasdhiuashdiuashdiuashdiuashdiuashdiuas"
-    @event.save
-    
     redirect_to @event
   end
   

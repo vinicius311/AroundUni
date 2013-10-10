@@ -1,4 +1,10 @@
 class RegularEventsController < ApplicationController
+  
+  def index
+    @regular_events = RegularEvent.all
+  end
+  
+  
   def new
     @regular_event = RegularEvent.new
     @regular_event.geolocation = Geolocation.new
