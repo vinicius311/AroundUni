@@ -1,5 +1,3 @@
-<p id="demo">Click the button to get your coordinates:</p>
-<button onclick="getLocation()">Try It</button>
 <script>
 var x=document.getElementById("demo");
 function getLocation()
@@ -20,9 +18,9 @@ function showPosition(position)
 </script>
 
 <h1>New Event</h1>
-<p id="demo">
-	
-</p>
+
+<p id="demo"></p>
+<button onclick="getLocation()">Carregar posicao</button>
 <%= form_for(@regular_event) do |f| %>
 
   <p>
