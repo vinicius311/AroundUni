@@ -19,7 +19,7 @@
         <td><%= regular_event.description %></td>
         <td><%= regular_event.type %></td>
         <td><%= link_to 'Show', regular_event %></td>
-        <td><%= link_to 'Edit', edit_regular_eventn_path(geolocation) %></td>
+        <td><%= link_to 'Edit', edit_regular_event_path(regular_event) %></td>
         <td><%= link_to 'Destroy', regular_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
