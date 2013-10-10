@@ -2,6 +2,8 @@ AroundUni::Application.routes.draw do
 
   resources :events
   resources :geolocations
+  resources :regular_events
+  resources :special_events
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

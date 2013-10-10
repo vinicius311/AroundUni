@@ -1,0 +1,30 @@
+<h1>New Event</h1>
+
+<%= form_for(@regular_event) do |f| %>
+
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </p>
+ 
+ 
+ <%= f.fields_for :geolocation do |ff| %>
+ <p>
+ 	<%= ff.label :latitude %><br>
+ 	<%= ff.text_field :latitude%>
+ </p>
+ <p>
+ 	<%= ff.label :longitude %><br>
+ 	<%= ff.text_field :longitude%>
+ </p>
+ 
+ <%end%>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

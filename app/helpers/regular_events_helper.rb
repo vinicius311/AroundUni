@@ -1,0 +1,2 @@
+module RegularEventsHelper
+end

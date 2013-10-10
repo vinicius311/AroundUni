@@ -4,10 +4,12 @@ class EventsController < ApplicationController
     @event.geolocation = Geolocation.new
   end
   
+  def index
+    @events = Event.all
+  end
   def create
     
   #  render text: params[:post].inspect
-    puts "FUNCIONOU"+event_params.to_s 
     @event = Event.new(event_params)
     puts @event.geolocation
     puts "dhasiudhaisudhasiudhausidhiuasdhiuashdiuashdiuashdiuashdiuashdiuas"
