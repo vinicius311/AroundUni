@@ -1,5 +1,28 @@
-<h1>New Event</h1>
+<p id="demo">Click the button to get your coordinates:</p>
+<button onclick="getLocation()">Try It</button>
+<script>
+var x=document.getElementById("demo");
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.watchPosition(showPosition);
+    }
+  else{x.innerHTML="Geolocation is not supported by this browser.";}
+  }
+function showPosition(position)
+  {
+  	var latitude = document.getElementById("regular_event_geolocation_attributes_latitude");
+  	var longitude = document.getElementById("regular_event_geolocation_attributes_longitude");
+	latitude.value = position.coords.latitude;
+	longitude.value = position.coords.longitude;	
+  }
+</script>
 
+<h1>New Event</h1>
+<p id="demo">
+	
+</p>
 <%= form_for(@regular_event) do |f| %>
 
   <p>
