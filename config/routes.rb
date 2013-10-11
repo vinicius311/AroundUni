@@ -16,10 +16,15 @@ AroundUni::Application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
-  get 'users/sign_up' => 'users#sign_up' 
+  get 'regular_users/sign_up' => 'regular_users#sign_up' 
+  get 'partner_users/sign_up' => 'partner_users#sign_up' 
+  
+  
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-  post 'users' => 'users#create', as: :users
+  post 'regular_users' => 'regular_users#create', as: :regular_users
+  post 'partner_users' => 'partner_users#create', as: :partner_users
+  
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 

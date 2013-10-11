@@ -1,3 +1,2 @@
-class RegularEvent < Event
-  
+class SpecialUser < User
 end
