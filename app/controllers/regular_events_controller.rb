@@ -12,7 +12,7 @@ class RegularEventsController < ApplicationController
   
   def create
     #render text: params[:post].inspect
-    @regular_event = RegularEvent.new(special_event_params)
+    @regular_event = RegularEvent.new(regular_event_params)
     @regular_event.save
     
     redirect_to @regular_event
