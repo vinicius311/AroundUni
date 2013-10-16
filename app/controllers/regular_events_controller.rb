@@ -4,7 +4,6 @@ class RegularEventsController < ApplicationController
     @regular_events = RegularEvent.all
   end
   
-  
   def new
     @regular_event = RegularEvent.new
     @regular_event.geolocation = Geolocation.new
@@ -17,6 +16,16 @@ class RegularEventsController < ApplicationController
     
     redirect_to @regular_event
   end
+  
+  def destroy
+    @regular_event = RegularEvent.find(params[:id])
+     @regular_event.destroy
+    respond_to do |format|
+      format.html { redirect_to geolocations_url }
+      format.json { head :no_content }
+    end
+  end
+  
   
   def show
     @regular_event = RegularEvent.find(params[:id])
