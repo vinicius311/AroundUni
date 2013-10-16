@@ -8,7 +8,6 @@ AroundUni::Application.routes.draw do
   
  get "log_out" => "sessions#destroy", :as => "log_out"
 get "log_in" => "sessions#new", :as => "log_in"
-root :to => "users#new"
 
   
   # The priority is based upon order of creation: first created -> highest priority.
