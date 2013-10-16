@@ -7,12 +7,12 @@ class RegularUsersController < ApplicationController
     @regular_user = RegularUser.new(regular_user_params)
     @regular_user.save
     
-    redirect_to @regular_user
+    #redirect_to @regular_user
   end
 
 private
   def regular_user_params
-    params.require(:regular_user).permit(:name, :email)
+    params.require(:regular_user).permit(:name, :email, :gender, :date_of_birth, :password, :password_confirmation) 
   end
 
 end
