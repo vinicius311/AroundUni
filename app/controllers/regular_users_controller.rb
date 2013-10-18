@@ -13,10 +13,14 @@ class RegularUsersController < ApplicationController
         UserMailer.welcome_email(@regular_user).deliver
         puts "HELLLOOO"
     end
+    redirect_to confirm_email_path
     
-    redirect_to events_path
+    
   end
 
+def confirm_email
+  
+end
 private
   def regular_user_params
     params.require(:regular_user).permit(:name, :email, :gender, :date_of_birth, :password, :password_confirmation) 

@@ -6,8 +6,7 @@ AroundUni::Application.routes.draw do
   resources :special_events
   resources :sessions
   
-  
-  
+get 'regular_users/confirm_email' => 'regular_users#confirm_email', :as => "confirm_email"
   
   
  get "log_out" => "sessions#destroy", :as => "log_out"

@@ -1,10 +1,19 @@
 class RegularEventsController < ApplicationController
   
+  
   def index
-    @regular_events = RegularEvent.all
+    event = Event.new    
+    if session[:user_id] == nil
+      redirect_to :root
+    end
+    @regular_events = RegularEvent.where(user_id: session[:user_id])
   end
   
   def new
+     event = Event.new    
+    if session[:user_id] == nil
+      redirect_to :root
+    end
     @regular_event = RegularEvent.new
     @regular_event.geolocation = Geolocation.new
   end
@@ -12,6 +21,7 @@ class RegularEventsController < ApplicationController
   def create
     #render text: params[:post].inspect
     @regular_event = RegularEvent.new(regular_event_params)
+    @regular_event.user_id = session[:user_id]
     @regular_event.save
     
     redirect_to @regular_event
