@@ -10,7 +10,6 @@ class SpecialEventsController < ApplicationController
   end
   
   def create
-  #  render text: params[:post].inspect
     @special_event = SpecialEvent.new(special_event_params)
     @special_event.save
     
