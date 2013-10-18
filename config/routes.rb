@@ -8,7 +8,7 @@ AroundUni::Application.routes.draw do
   
 get 'regular_users/confirm_email' => 'regular_users#confirm_email', :as => "confirm_email"
 get 'regular_users/confirmate_email/:verification_code'  => 'regular_users#confirmate_email', :as => "confirmate_email"
-  
+
  get "log_out" => "sessions#destroy", :as => "log_out"
 get "log_in" => "sessions#new", :as => "log_in"
 

@@ -1,5 +1,7 @@
 class RegularUsersController < ApplicationController
+  
   require 'securerandom'
+  
   def sign_up
     @regular_user = RegularUser.new
   end
@@ -8,10 +10,11 @@ class RegularUsersController < ApplicationController
     @regular_user = RegularUser.new(regular_user_params)
     @regular_user.verification_code = SecureRandom.urlsafe_base64
     @regular_user.verified = false
-    @regular_user.save
-      if @regular_user.save
-        UserMailer.welcome_email(@regular_user).deliver
-      end
+    
+    if @regular_user.save
+      UserMailer.welcome_email(@regular_user).deliver
+    end
+
     redirect_to confirm_email_path
   end
 
@@ -19,10 +22,12 @@ class RegularUsersController < ApplicationController
   
   end
   
-  def confirmate_email
+  def confirmate_email    
     user = User.where(verification_code: params[:verification_code]).first
     user.verified = true
     user.save
+    
+    redirect_to events_url
   end
   
   private
