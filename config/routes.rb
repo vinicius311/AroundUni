@@ -6,6 +6,10 @@ AroundUni::Application.routes.draw do
   resources :special_events
   resources :sessions
   
+  
+  
+  
+  
  get "log_out" => "sessions#destroy", :as => "log_out"
 get "log_in" => "sessions#new", :as => "log_in"
 
