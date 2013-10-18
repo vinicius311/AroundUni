@@ -20,13 +20,15 @@ class RegularUsersController < ApplicationController
   end
   
   def confirmate_email
-    
+    user = User.where(verification_code: params[:verification_code]).first
+    user.verified = true
+    user.save
   end
   
   private
   
   def regular_user_params
-    params.require(:regular_user).permit(:name, :email, :gender, :date_of_birth, :password, :password_confirmation) 
+    params.require(:regular_user).permit(:name, :email, :gender, :date_of_birth, :password, :password_confirmation, :verification_code) 
   end
 
 end
