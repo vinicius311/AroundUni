@@ -1,6 +1,6 @@
 class UserMailer < ActionMailer::Base
 
-  default from: 'noreplyaroununi@gmail.com'
+  default from: 'noreplyarounduni@gmail.com'
  
   def welcome_email(user)
     puts "hello my name is terminator!"

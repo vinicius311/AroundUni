@@ -7,7 +7,14 @@ class RegularUsersController < ApplicationController
     @regular_user = RegularUser.new(regular_user_params)
     @regular_user.save
     
-    #redirect_to @regular_user
+    
+      if @regular_user.save
+        # Tell the UserMailer to send a welcome Email after save
+        UserMailer.welcome_email(@regular_user).deliver
+        puts "HELLLOOO"
+    end
+    
+    redirect_to events_path
   end
 
 private
