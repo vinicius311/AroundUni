@@ -1,10 +1,12 @@
 class RegularUsersController < ApplicationController
+  require 'securerandom'
   def sign_up
     @regular_user = RegularUser.new
   end
   
   def create
     @regular_user = RegularUser.new(regular_user_params)
+    @regular_user.verification_code = SecureRandom.urlsafe_base64
     @regular_user.save
       if @regular_user.save
         UserMailer.welcome_email(@regular_user).deliver
@@ -14,6 +16,11 @@ class RegularUsersController < ApplicationController
 
   def confirm_email
   
+  end
+  
+  def confirmate_email
+    
+  end
   end
   
   private

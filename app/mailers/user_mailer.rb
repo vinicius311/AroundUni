@@ -4,7 +4,8 @@ class UserMailer < ActionMailer::Base
  
   def welcome_email(user)
     @user = user
-    @url  = 'http://arounduni.com/login'
+    @activation_url = "http://localhost:3000/regular_users/verificate_email?verification_code="+@user.verification_code                 
+    @url  = 'http://arounduni.herokuapp.com'
     mail(to: @user.email, subject: 'Welcome to AroundUni!')
   end
 end
