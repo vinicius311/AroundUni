@@ -1,29 +1,30 @@
-<h1>Events</h1>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Special Event</h1>
+        <p>Description</p>
+        <p><a class="btn btn-primary btn-lg">View details &raquo;</a></p>
+      </div>
+    </div>
+<hr class="seperate"/>
+	
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-lg-4">
+          <h2>Event1</h2>
+          <p>Description</p>
+          <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
+        </div>
+        <div class="col-lg-4">
+          <h2>Event2</h2>
+          <p>Description</p>
+          <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
+       </div>
+        <div class="col-lg-4">
+          <h2>Event3</h2>
+          <p>Description</p>
+          <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
+        </div>
+      </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Type</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.name %></td>
-        <td><%= event.description %></td>
-        <td><%= event.type %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td></td>
-        <td></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
