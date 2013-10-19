@@ -23,10 +23,11 @@ class RegularUsersController < ApplicationController
   end
   
   def confirmate_email    
-    user = User.where(verification_code: params[:verification_code]).first
-    user.verified = true
-    user.save
-    
+    user = User.verify_email(params[:verification_code])
+    if user
+      #start session
+    end
+  
     redirect_to events_url
   end
   

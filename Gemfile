@@ -3,6 +3,13 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
+#facebook integration gem
+gem 'omniauth-facebook'
+
+#twitter bootstrap gem
+gem 'bootstrap-sass'
+
+
 #Geocoder geolocation gem
 gem 'geocoder'
 

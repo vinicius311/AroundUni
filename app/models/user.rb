@@ -37,6 +37,16 @@ class User < ActiveRecord::Base
     end
   end
   
+  def self.verify_email(verification_code)
+    user = find_by_verification_code(verification_code)
+    if user and user.verified == false
+      user.verified = true
+      user.save
+      user
+    else
+      nil
+    end
+  end
  
   
 end
