@@ -1,26 +1,86 @@
-<h1>Sign Up</h1>
+  
+<script type="text/javascript">
+	$(document).ready(function(){
+			$('.sign_up_mainContainer').blurjs({
+				source: 'body',
+				offset: {           //Pixel offset of background-position
+       					 x: 0,
+       					 y: 0
+   				 },
+				
+				overlay: 'rgba(255,255,255,0.7)',
+				radius:40,
+				debug:'true'
+			});
+		});
+	</script>
 
-<%= form_for(@regular_user) do |f| %>
+<div class="sign_up_mainContainer"><!-- main container -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">AroundUni</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Events</a></li>
+            <% if current_user %>  
+            <% else %>
+            <li><%= link_to "Sign up", regular_users_sign_up_path %></li>
+            <% end %>
+          </ul>
+          <% if current_user %>
+          <ul class="nav navbar-nav navbar-right">            
+            <li><%= link_to "Log out", log_out_path %></li>              
+          <% else %>            
+          <form class="navbar-form navbar-right" method="post" action="/sessions" accept-charset="UTF-8">
+            <div class="form-group">
+              <input type="text" placeholder="Email" class="form-control" id="email" name="email">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control" id="password" name="password">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
+           <% end %>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
 
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
- 
-  <p>
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </p>
 
-  <p>
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </p>
-  <p>
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+  <h1>Sign up</h1>	
+  <hr class="seperate"/>
+  <%= form_for(@regular_user) do |f| %>
+  <div class="sign_up_form">
+    <div class="form-group">
+      <input class="form-control" type="text" placeholder="Name"id="regular_user_name" name="regular_user[name]" type="text"></input>
+	</div>
+    <div class="form-group">
+	  <input class="form-control" type="text" placeholder="Email"  id="regular_user_email" name="regular_user[email]"></input>
+    </div>
+	<div class="form-group">
+	  <div id="logtype" name="logtype" class="btn-group" data-toggle="buttons-radio">
+        <button type="button" class="btn btn-info">Student</button>
+        <button type="button" class="btn btn-info">Partner</button>
+      </div>
+  	</div>
+    <br>
+    <div class="form-group">
+	  <input class="form-control" placeholder="Password" id="regular_user_password" name="regular_user[password]" type="password"></input>
+    </div>
+    <div class="form-group">
+	  <input class="form-control" placeholder="Re-enter Password" id="regular_user_password_confirmation" name="regular_user[password_confirmation]" type="password"></input>
+    </div>
+    <div class="controls">
+      <button type="submit" class="btn btn-success" >Create My Account</button>
+    </div>
+  </div>
+  <%end%>
+  <hr class="seperate"/>
+  </div><!-- main container -->
+

@@ -1,3 +1,0 @@
-class RegularEvent < Event
-  
-end
