@@ -53,31 +53,13 @@
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
-    <div class="col-lg-4">
-          <h2>Rock Party</h2>
-          <p>Good rock party very very nice, with very cool people. Free drinks!Free barbecue to celebrate the end of the semester. Bring your friends.Free barbecue to celebrate the end of the semester. Bring your friends.</p>
+    <% @events.each do |event| %>
+        <div class="col-lg-8">
+          <h2><%=event.name%></h2>
+          <p><%=event.description%></p>
           <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
         </div>        
-        <div class="col-lg-4">
-          <h2>Free Barbecue</h2>
-          <p>Free barbecue to celFree barbecue to celebrate the end of the semester. Bring your friends.Free barbecue to celebrate the end of the semester. Bring your friends.ebrate the end of the semester. Bring your friends.</p>
-          <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
-        </div>        
-        <div class="col-lg-4">
-          <h2>Cute Zoo Animals</h2>
-          <p>Torunga zoo brought their animals to a trip to UsydFree barbecue to celebrate the end of the semester. Bring your friends.Free barbecue to celebrate the end of the semester. Bring your friends.!</p>
-          <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
-        </div>        
-        <div class="col-lg-4">
-          <h2>4th event</h2>
-          <p> I am here to break it allFree barbecue to celebrate the end of the semester. Bring your friends.Free barbecue to celebrate the end of the semester. Bring your friends.Free barbecue to celebrate the end of the semester. Bring your friends.</p>
-          <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
-        </div>        
-        <div class="col-lg-4">
-          <h2>Lero</h2>
-          <p>TesFree barbecue to celebrate the end of the semester. Bring your friends.Free barbecue to celebrate the end of the semester. Bring your friends.Free barbecue to celebrate the end of the semester. Bring your friends.t</p>
-          <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
-        </div>        
+      <% end %>   
       </div>
 
       <hr>
