@@ -8,23 +8,28 @@
   <script type='text/javascript' src='../js/blurjs/blur.js'></script>
   <!-- formhelper js-->
 	<script type='text/javascript' src='../js/bootstrap-formhelpers.js'></script>
-  
+      <!-- Bootstrap core CSS -->
+    <link href="../../css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../css/jumbotron.css" rel="stylesheet">
+
 </head>
 
 <body>
   <% if current_user %>
     Logged in as <%= current_user.email %>
   <% else %>
-     Fucked up
+    
 <% end %>
 <%puts "I am here"%>
 
 <% if session[:user_id] %>
   <%= session[:user_id]%>
   <% else %>
-     Fucked up
+     
 <% end %>
-oidjosidjoaisjdoiasjdoiasjoidjasoijdioasjdoas
+
   <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, :id => "flash#{name}" %>
   <% end %>
