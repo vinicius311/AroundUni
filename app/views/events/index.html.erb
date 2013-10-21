@@ -62,27 +62,21 @@
         <p><a class="btn btn-primary btn-lg">View details &raquo;</a></p>
       </div>
     </div>
-<hr class="seperate"/>
-	
+<hr class="seperate"/>	 
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
+      
+ <% @events.each do |event| %>
+
         <div class="col-lg-4">
-          <h2>Event1</h2>
-          <p>Description</p>
+          <h2><%=event.name%></h2>
+          <p><%=event.description%></p>
           <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
         </div>
-        <div class="col-lg-4">
-          <h2>Event2</h2>
-          <p>Description</p>
-          <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
-       </div>
-        <div class="col-lg-4">
-          <h2>Event3</h2>
-          <p>Description</p>
-          <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
-        </div>
-      </div>
+        
+      <% end %>
+    </div>
     <hr class="seperate"/>
   </div><!-- main container -->
 
