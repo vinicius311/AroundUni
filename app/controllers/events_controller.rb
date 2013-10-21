@@ -5,6 +5,7 @@ class EventsController < ApplicationController
   end
   
   def index
+    @regular_user = RegularUser.new
     @events = Event.all
   end
   

@@ -1,21 +1,3 @@
-<script type="text/javascript">
-		$(document).ready(function(){
-			
-			$('.mainContainer').blurjs({
-				source: 'body',
-				offset: {           //Pixel offset of background-position
-       					 x: 0,
-       					 y: 0
-   				 },
-				
-				overlay: 'rgba(255,255,255,0.7)',
-				radius:40,
-				debug:'true'
-			});
-		});
-</script>
-
-<div class="mainContainer"><!-- main container -->
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -30,7 +12,7 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Events</a></li>
             <% if current_user %>  
-            <% else %>
+            <% else %>            
             <li><%= link_to "Sign up", regular_users_sign_up_path %></li>
             <% end %>
           </ul>
@@ -38,16 +20,19 @@
           <ul class="nav navbar-nav navbar-right">            
             <li><%= link_to "Log out", log_out_path %></li>              
           <% else %>            
-          <form class="navbar-form navbar-right" method="post" action="/sessions" accept-charset="UTF-8">
-            <div class="form-group">
+          <%= form_tag({url: sessions_path }, {:class => 'navbar-form navbar-right'}) do %>
+
+           <div class="form-group">
               <input type="text" placeholder="Email" class="form-control" id="email" name="email">
             </div>
             <div class="form-group">
               <input type="password" placeholder="Password" class="form-control" id="password" name="password">
             </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
-           <% end %>
+           
+            <button type="submit" value="Save changes" name="commit" class="btn btn-success">Sign in</button>
+          
+           
+<% end %><% end %>
         </div><!--/.navbar-collapse -->
       </div>
     </div>
@@ -78,5 +63,5 @@
       <% end %>
     </div>
     <hr class="seperate"/>
-  </div><!-- main container -->
-
+</div>
+    
