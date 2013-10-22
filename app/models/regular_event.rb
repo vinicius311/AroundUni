@@ -1,2 +1,3 @@
 class RegularEvent < Event
+  
 end

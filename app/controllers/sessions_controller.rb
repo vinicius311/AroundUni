@@ -7,6 +7,9 @@ def create
   if user  
     if user.verified
       session[:user_id] = user.id      
+      session[:latitude] = "-33.967496"
+      session[:longitude] = "-150.115419"
+      
       msg = "Logged in!"       
     else
       msg = "Email not verified. Please verify your email account."      
@@ -19,13 +22,16 @@ end
 
 def destroy
   session[:user_id] = nil
+  session[:latitude] = nil
+  session[:longitude] = nil      
+
   redirect_to root_url, :notice => "Logged out!"
 end
 
 private
 
   def login_params
-    params.permit(:email, :password)
+    params.permit(:email, :password, :latitude, :longitude)
   end
 
 end

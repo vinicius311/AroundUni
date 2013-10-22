@@ -55,6 +55,6 @@ class RegularEventsController < ApplicationController
 private
   def regular_event_params
     #params.require(:event).permit(:name, :description)
-    params.require(:regular_event).permit(:name, :description, geolocation_attributes: [:latitude,:longitude])
+    params.require(:regular_event).permit(:name, :description,:latitude, :longitude, geolocation_attributes: [:latitude,:longitude])
   end
 end

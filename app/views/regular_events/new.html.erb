@@ -14,7 +14,10 @@ function getLocation()
 function setPosition(position)
 {
   document.getElementById("regular_event_geolocation_attributes_latitude").value = position.coords.latitude;
-  document.getElementById("regular_event_geolocation_attributes_longitude").value = position.coords.longitude;	
+  document.getElementById("regular_event_geolocation_attributes_longitude").value = position.coords.longitude;
+  
+  document.getElementById("regular_event_latitude").value = position.coords.latitude;
+  document.getElementById("regular_event_longitude").value = position.coords.longitude;	
 }
 </script>
 
@@ -109,6 +112,9 @@ $( document ).ready(function() {
       </div>
       <div class="form-group">
         <label>Location</label>
+        <input type="text" class="form-control" placeholder="Latitude" id="regular_event_latitude" name="regular_event[latitude]">
+        <input type="text" class="form-control" placeholder="Longitude" id="regular_event_longitude" name="regular_event[longitude]">
+      
         <%= f.fields_for :geolocation do |ff| %>
 			<p> 	
  				<%= ff.text_field :latitude%>

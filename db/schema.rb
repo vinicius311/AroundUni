@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131022061809) do
+ActiveRecord::Schema.define(version: 20131022120128) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,9 @@ ActiveRecord::Schema.define(version: 20131022061809) do
     t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "address"
   end
 
   add_index "events", ["geolocation_id"], name: "index_events_on_geolocation_id", using: :btree
@@ -45,11 +48,11 @@ ActiveRecord::Schema.define(version: 20131022061809) do
 
   create_table "geolocations", force: true do |t|
     t.string   "address"
-    t.string   "latitude"
-    t.string   "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "event_id"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "geolocations", ["event_id"], name: "index_geolocations_on_event_id", using: :btree
