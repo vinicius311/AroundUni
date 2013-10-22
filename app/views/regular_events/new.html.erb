@@ -18,7 +18,6 @@ function setPosition(position)
 }
 </script>
 
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script>
 $( document ).ready(function() {
   getLocation();
@@ -56,10 +55,10 @@ $( document ).ready(function() {
               </ul>
             </li>
           </ul>
-          <div class="navbar-form navbar-right">
-         <a href="<%= new_regular_event_path %>"><button class="btn btn-success">Post Event</button></a> 
+          <form accept-charset="UTF-8" action="<%= new_regular_event_path %>" class="navbar-form navbar-right" method="get">
+            <button type="submit" class="btn btn-success">Post Event</button> 
+         </form>
                   
-          </div>
                 
         </div><!--/.navbar-collapse -->
       </div>
@@ -81,7 +80,7 @@ $( document ).ready(function() {
     <div class="form-group">
       <label>Time</label>
       <!-- time picker -->
-      <%time = Time.new %>
+      <% time = Time.new %>
       <div class="bfh-timepicker" data-time="<%=time.hour.to_s+":"+time.min.to_s%>">
         <div class="input-group bfh-timepicker-toggle" data-toggle="bfh-timepicker">
           <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
@@ -110,24 +109,20 @@ $( document ).ready(function() {
       </div>
       <div class="form-group">
         <label>Location</label>
-      </div>
-      <div class="form-group">
-        <label>Constraints</label>
-        <textarea class="form-control" rows="1" type="text" placeholder="Write constrains"></textarea>
-      </div>
+        <%= f.fields_for :geolocation do |ff| %>
+			<p> 	
+ 				<%= ff.text_field :latitude%>
+ 			</p>
+ 			<p>
+ 				<%= ff.text_field :longitude %><br> 	
+ 			</p> 
+ 		<%end%> 
+      </div>      
       <div class="form-group">
         <label>Description</label>
         <textarea class="form-control" rows="3" type="text" placeholder="Write Dexcription" id="regular_event_description" name="regular_event[description]"></textarea>
       </div>
       <button type="submit" class="btn btn-success">Post</button>
- <%= f.fields_for :geolocation do |ff| %>
- <p> 	
- 	<%= ff.text_field :latitude%>
- </p>
- <p>
- 	<%= ff.text_field :longitude %><br> 	
- </p> 
- <%end%>
  <% end %>
  
       </div>
