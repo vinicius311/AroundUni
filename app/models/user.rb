@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
       user.save
       user
     else
-      nil
+     nil
     end
   end
  
