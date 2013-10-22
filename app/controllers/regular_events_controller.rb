@@ -23,8 +23,9 @@ class RegularEventsController < ApplicationController
     @regular_event = RegularEvent.new(regular_event_params)
     @regular_event.user_id = session[:user_id]
     @regular_event.save
-    
-    redirect_to @regular_event
+    @event = Event.find(@regular_event.id)
+    puts "eu to passando por aqui"
+    redirect_to "/events/"+@regular_event.id.to_s
   end
   
   def destroy
