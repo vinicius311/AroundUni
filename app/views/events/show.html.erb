@@ -7,12 +7,7 @@ function showPosition(position)
   document.getElementById("mapholder").innerHTML="";
   }
 </script>
-<script>
-$( document ).ready(function() {
-  getLocation();
-});
-</script>
-	
+
 <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -56,17 +51,24 @@ $( document ).ready(function() {
       <!-- Example row of columns -->
       <div class="row">
   		<h1><%=@event.name%></h1>
+  		<%if @event.user_id == session[:user_id]%>
+  		  <%if @event.type == "RegularEvent"%>  		  
+  		    <h3><a href="/regular_events/<%=@event.id%>/edit">Edit</a></h3>
+  		  <%else%>
+  		    <h3><a href="/special_events/<%=@event.id%>/edit">Edit</a></h3>
+  		  <%end%>
+  		<%end%>	
       </div>
       <div class="row">
   		<h2>Description</h2>
-  		<h3><%=@event.description%></h3>
+  		<p><%=@event.description%></p>
       </div>
       <div class="row">
 		<div id="mapholder">
 			<%latlon = @event.geolocation.latitude.to_s
 			   latlon << "," 
 			   latlon << @event.geolocation.longitude.to_s %>
-			<img src="http://maps.googleapis.com/maps/api/staticmap?center=<%=latlon%>&zoom=14&size=200x200&sensor=false">
+			<img src="http://maps.googleapis.com/maps/api/staticmap?center=<%=latlon%>&zoom=14&size=200x200&markers=color:blue%7Clabel:S%7C<%=latlon%>&sensor=false">
 		</div>
 	  </div>
       <hr>

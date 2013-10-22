@@ -29,16 +29,26 @@ class RegularEventsController < ApplicationController
   
   def destroy
     @regular_event = RegularEvent.find(params[:id])
-     @regular_event.destroy
-    respond_to do |format|
-      format.html { redirect_to geolocations_url }
-      format.json { head :no_content }
-    end
+     @regular_event.destroy  
   end
   
   
   def show
     @regular_event = RegularEvent.find(params[:id])
+  end
+
+  def edit
+    @regular_event = RegularEvent.find(params[:id])
+  end
+  
+  def update
+      @regular_event = RegularEvent.find(params[:id])
+      if @regular_event.update(regular_event_params)
+      else
+      end
+      @event = Event.find(params[:id])
+      redirect_to @event
+    
   end
 
 private

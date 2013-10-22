@@ -1,29 +1,3 @@
-<script>
-function getLocation()
-{
-  if (navigator.geolocation)
-  {
-    navigator.geolocation.watchPosition(setPosition);
-  }
-  else
-  {
-  	//todo: handle if browser doesn't support gps.
-  }
-}
-
-function setPosition(position)
-{
-  document.getElementById("regular_event_geolocation_attributes_latitude").value = position.coords.latitude;
-  document.getElementById("regular_event_geolocation_attributes_longitude").value = position.coords.longitude;	
-}
-</script>
-
-<script>
-$( document ).ready(function() {
-  getLocation();
-});
-</script>
-
 	
 <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -56,7 +30,7 @@ $( document ).ready(function() {
             </li>
           </ul>
           <form accept-charset="UTF-8" action="<%= new_regular_event_path %>" class="navbar-form navbar-right" method="get">
-            <button type="submit" class="btn btn-success">Post Event</button> 
+            <button type="submit" class="btn btn-success">Edit Event</button> 
          </form>
                   
                 
@@ -67,13 +41,13 @@ $( document ).ready(function() {
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
-  <h1>New Post</h1>
+  <h1>Edit Event</h1>
   <hr class="seperate"/>
   <div class = "sign_up_form"><!-- form container -->
     <%= form_for(@regular_event) do |f| %>
       <div class="form-group">
         <label>Name</label>
-        <input type="text" class="form-control" placeholder="Event name" id="regular_event_name" name="regular_event[name]">
+        <input type="text" class="form-control" placeholder="Event name" id="regular_event_name" name="regular_event[name]" value="<%=@regular_event.name%>">
       </div>
       <div class="form-group">
         
@@ -120,9 +94,9 @@ $( document ).ready(function() {
       </div>      
       <div class="form-group">
         <label>Description</label>
-        <textarea class="form-control" rows="3" type="text" placeholder="Write Dexcription" id="regular_event_description" name="regular_event[description]"></textarea>
+        <textarea class="form-control" rows="3" type="text" placeholder="Write Dexcription" id="regular_event_description" name="regular_event[description]"><%=@regular_event.description%></textarea>
       </div>
-      <button type="submit" class="btn btn-success">Post</button>
+      <button type="submit"  class="btn btn-success">Update</button>
  <% end %>
  
       </div>
