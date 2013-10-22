@@ -28,11 +28,15 @@ class RegularUsersController < ApplicationController
   
   def confirm_email    
     user = User.verify_email(params[:verification_code])
-    if user
-      #start session
+    if user and user.verified == false
+      user.verified = true
+      user.save
+      session[:user_id]= user.id #start session
+      msg = "Email verified. Logged in."
+    else
+      msg = "Verification failed."
     end
-  
-    redirect_to events_url
+    redirect_to root_url, :notice => msg
   end
   
   private
