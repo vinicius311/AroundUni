@@ -6,8 +6,8 @@ AroundUni::Application.routes.draw do
   resources :special_events
   resources :sessions
   
-  get 'regular_users/confirm_email' => 'regular_users#confirm_email', :as => "confirm_email"
-  get 'regular_users/confirmate_email/:verification_code'  => 'regular_users#confirmate_email', :as => "confirmate_email"
+  get 'regular_users/sign_up_instructions' => 'regular_users#sign_up_instructions', :as => "sign_up_instructions"
+  get 'regular_users/confirm_email/:verification_code'  => 'regular_users#confirm_email', :as => "confirm_email"
 
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in"

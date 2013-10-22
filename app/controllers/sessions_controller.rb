@@ -3,22 +3,18 @@ def new
 end
 
 def create
-  puts "entered"
   user = User.authenticate(params[:email], params[:password])
-  if user
-  puts "found user"  
-    if user.verified == true
-      puts "user is verified" 
-      session[:user_id] = user.id
-      puts session[:user_id]
-      redirect_to root_url, :notice => "Logged in!"
+  if user  
+    if user.verified
+      session[:user_id] = user.id      
+      msg = "Logged in!"       
     else
-      flash.now.alert = "Please verify your e-mail."
+      msg = "Email not verified. Please verify your email account."      
     end
   else
-    flash.now.alert = "Invalid email or password"
-    render "new"
+    msg =  "Incorrect credentials."      
   end
+  redirect_to root_url, :notice => msg
 end
 
 def destroy

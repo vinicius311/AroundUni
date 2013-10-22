@@ -1,18 +1,3 @@
-<script type="text/javascript">
-  $(document).ready(function(){		
-    $('.post_mainContainer').blurjs({
-				source: 'body',
-				offset: {           //Pixel offset of background-position
-       					 x: 0,
-       					 y: 0
-   				 },
-				
-				overlay: 'rgba(255,255,255,0.7)',
-				radius:40,
-				debug:'true'
-			});
-		});
-</script>
 <script>
 function getLocation()
 {
@@ -41,33 +26,48 @@ $( document ).ready(function() {
 </script>
 
 	
-<div class="post_mainContainer"><!-- main container -->
-  <div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">AroundUni</a>
-      </div>
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          <li><a href="#">Events</a></li>
-          <li class="active"><a href="#about">Post</a></li>
-        </ul>
-        <div class="logout">	    
-          <button type="submit" class="btn btn-success">Log out</button>
+<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">AroundUni</a>
         </div>
-		<div class="user_info">
-		  <p>Hello Peter!</p>
-		</div>		
-      </div><!--/.navbar-collapse -->
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><%= link_to "Sign up", regular_users_sign_up_path %></li>
+            <li><%= link_to "Log Out", "/log_out" %></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Events <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Post Event</a></li>
+                <li><a href="#">My Events</a></li>
+                <li><a href="#">My Verifications</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+          <div class="navbar-form navbar-right">
+         <a href="<%= new_regular_event_path %>"><button class="btn btn-success">Post Event</button></a> 
+                  
+          </div>
+                
+        </div><!--/.navbar-collapse -->
+      </div>
     </div>
-  </div>
-  <br>
-  
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
   <h1>Post</h1>
   <hr class="seperate"/>
   <div class = "sign_up_form"><!-- form container -->
@@ -128,24 +128,22 @@ $( document ).ready(function() {
  	<%= ff.text_field :longitude %><br> 	
  </p> 
  <%end%>
-    <% end %>
-  <!--    <footer>
-        <p>&copy; Company 2013</p>
-      </footer> -->
-  </div> <!-- /container -->
-  <hr class="seperate"/>
+ <% end %>
+ 
+      </div>
 
-</div><!-- main container -->
+      <hr>
+
+      <footer>
+        <p>&copy; Company 2013</p>
+      </footer>
+    </div> <!-- /container -->
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
- <!--   <script src="js/jquery.js"></script> -->
-  <!--  <script src="js/bootstrap.min.js"></script>-->
-
-
- <!--   <script src="js/blurjs/blur.js"></script>
-    <script src="js/blurjs/blur.devjs"></script>
-    <script src="js/blurjs/blur.min.js"></script> -->
- 
+    <script src="../../js/jquery.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+  
 

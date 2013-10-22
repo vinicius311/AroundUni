@@ -41,37 +41,12 @@
       </div>
     </div>
 
-
+    <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="container">
-      	<h1>Sign up</h1>	
-	<hr class="seperate"/>
-  <%= form_for(@regular_user) do |f| %>
-  <div class="sign_up_form">
-    <div class="form-group">
-      <input class="form-control" type="text" placeholder="Name"id="regular_user_name" name="regular_user[name]" type="text"></input>
-	</div>
-    <div class="form-group">
-	  <input class="form-control" type="text" placeholder="Email"  id="regular_user_email" name="regular_user[email]"></input>
-    </div>
-	<div class="form-group">
-	  <div id="logtype" name="logtype" class="btn-group" data-toggle="buttons-radio">
-        <button type="button" class="btn btn-info">Student</button>
-        <button type="button" class="btn btn-info">Partner</button>
-      </div>
-  	</div>
-    <br>
-    <div class="form-group">
-	  <input class="form-control" placeholder="Password" id="regular_user_password" name="regular_user[password]" type="password"></input>
-    </div>
-    <div class="form-group">
-	  <input class="form-control" placeholder="Re-enter Password" id="regular_user_password_confirmation" name="regular_user[password_confirmation]" type="password"></input>
-    </div>
-    <div class="controls">
-      <button type="submit" class="btn btn-success" >Create My Account</button>
-    </div>
-  </div>
-  <%end%>
+<h1>E-mail verification.</h1>
+<p>Verify your e-mail to finish your sign up process. It will take no more than 2 minutes.</p>
 
+      </div>
 
       <hr>
 
@@ -86,3 +61,4 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="../../js/jquery.js"></script>
     <script src="../../js/bootstrap.min.js"></script>
+
