@@ -17,6 +17,8 @@ class EventsController < ApplicationController
   
   def show
     @event = Event.find(params[:id])
+    puts @event.geolocation.latitude
+    puts @event.geolocation.longitude
   end
 
 private

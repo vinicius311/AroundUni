@@ -1,9 +1,89 @@
+<script>
+function showPosition(position)
+  {
+  var latlon=position.coords.latitude+","+position.coords.longitude;
+
+  var img_url=;
+  document.getElementById("mapholder").innerHTML="";
+  }
+</script>
+<script>
+$( document ).ready(function() {
+  getLocation();
+});
+</script>
+	
+<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">AroundUni</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><%= link_to "Sign up", regular_users_sign_up_path %></li>
+            <li><%= link_to "Log Out", "/log_out" %></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Events <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Post Event</a></li>
+                <li><a href="#">My Events</a></li>
+                <li><a href="#">My Verifications</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form accept-charset="UTF-8" action="<%= new_regular_event_path %>" class="navbar-form navbar-right" method="get">
+            <button type="submit" class="btn btn-success">Post Event</button> 
+         </form>
+                  
+                
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+  		<h1><%=@event.name%></h1>
+      </div>
+      <div class="row">
+  		<h2>Description</h2>
+  		<h3><%=@event.description%></h3>
+      </div>
+      <div class="row">
+		<div id="mapholder">
+			<%latlon = @event.geolocation.latitude.to_s
+			   latlon << "," 
+			   latlon << @event.geolocation.longitude.to_s %>
+			<img src="http://maps.googleapis.com/maps/api/staticmap?center=<%=latlon%>&zoom=14&size=200x200&sensor=false">
+		</div>
+	  </div>
+      <hr>
+
+      <footer>
+        <p>&copy; Company 2013</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../js/jquery.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+  
+
+
+
 <p>
-  <strong>Name:</strong>
-  <%= @event.name %>
-</p>
- 
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
