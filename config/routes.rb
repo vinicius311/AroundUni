@@ -31,7 +31,7 @@ AroundUni::Application.routes.draw do
   post 'regular_users' => 'regular_users#create', as: :regular_users
   post 'partner_users' => 'partner_users#create', as: :partner_users
   
-  post 'verify' => 'event#verify' 
+  post 'verify' => 'events#verify' 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 

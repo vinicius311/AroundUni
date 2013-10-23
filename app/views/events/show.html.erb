@@ -41,13 +41,25 @@
       <!-- Example row of columns -->
       <div class="row">
   		<h1><%=@event.name%></h1>
-  		<%if @event.user_id == session[:user_id]%>
-  		  <%if @event.type == "RegularEvent"%>  		  
+  		
+   	 <%if session[:user_id]%>  
+   	 <p>ddsadasd</p>
+  		<%if !@event.user_id == session[:user_id]%>
+  		<p>ddsadasd</p>
+  		   <%if @event.type == "RegularEvent"%>  		  
   		    <h3><a href="/regular_events/<%=@event.id%>/edit">Edit</a></h3>
-  		  <%else%>
+  		   <%else%>
   		    <h3><a href="/special_events/<%=@event.id%>/edit">Edit</a></h3>
-  		  <%end%>
-  		<%end%>	
+  		   <%end%>
+      <%else%>
+         <form accept-charset="UTF-8" action="/verify" method="post">
+           <input name="utf8" value="✓" type="hidden">
+           <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+           <input type="hidden" id="event_id" name="event_id" value="<%=@event.id%>">
+           <button type="submit" value="Verify" class="btn btn-default">Verify Event</button> 
+  		</form>
+  	  <%end%>
+  	<%end%>	
       </div>
       <div class="row">
   		<h2>Description</h2>
