@@ -9,10 +9,12 @@ def create
       session[:user_id] = user.id      
       if session[:latitude]
         session[:latitude] = params[:latitude] 
-        session[:longitude] = params[:longitude] 
+        session[:longitude] = params[:longitude]
+        session[:location] = true 
       else        
         session[:latitude] = "-33.8894586"
         session[:longitude] = "151.1913734"
+        session[:location] = false
       end
       msg = "Logged in!"       
     else

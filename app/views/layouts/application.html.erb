@@ -26,7 +26,11 @@
 <body>
   <% if current_user %>
     Welcome <%= current_user.name %>!
-  <% else %>
+    <% if session[:location] %>
+    GOOOD
+    <%end%>
+    
+    <% else %>
     
 <% end %>
 
