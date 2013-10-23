@@ -7,9 +7,13 @@ def create
   if user  
     if user.verified
       session[:user_id] = user.id      
-      session[:latitude] = "-33.8894586"
-      session[:longitude] = "151.1913734"
-      
+      if session[:latitude].length > 3
+        session[:latitude] = params[:latitude] 
+        session[:longitude] = params[:longitude] 
+      else        
+        session[:latitude] = "-33.8894586"
+        session[:longitude] = "151.1913734"
+      end
       msg = "Logged in!"       
     else
       msg = "Email not verified. Please verify your email account."      
