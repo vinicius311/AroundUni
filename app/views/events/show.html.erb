@@ -44,7 +44,7 @@
   		
    	 <%if session[:user_id]%>  
    	 <p>ddsadasd</p>
-  		<%if !@event.user_id == session[:user_id]%>
+  		<%if @event.user_id == session[:user_id]%>
   		<p>ddsadasd</p>
   		   <%if @event.type == "RegularEvent"%>  		  
   		    <h3><a href="/regular_events/<%=@event.id%>/edit">Edit</a></h3>
@@ -52,6 +52,7 @@
   		    <h3><a href="/special_events/<%=@event.id%>/edit">Edit</a></h3>
   		   <%end%>
       <%else%>
+        <%if %>
          <form accept-charset="UTF-8" action="/verify" method="post">
            <input name="utf8" value="✓" type="hidden">
            <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">

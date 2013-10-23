@@ -36,7 +36,7 @@ class EventsController < ApplicationController
   
   def verify
     event = Event.find(verification_params[:event_id])
-    verifications = Verification.where(user_id: session[:user_id], event_id: verification_params[:event_id])
+    verifications = event.verifications.where(user_id: session[:user_id])
     if verifications.count == 0      
       verification = Verification.new()
       verification.user_id = session[:user_id]
