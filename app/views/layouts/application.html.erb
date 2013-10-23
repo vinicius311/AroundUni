@@ -26,6 +26,9 @@
 <body>
   <% if current_user %>
     Welcome <%= current_user.name %>!
+    <%= session[:latitude] %>
+    <%= session[:longitude] %>
+
     <% if session[:location] %>
     GOOOD
     <% else %>
