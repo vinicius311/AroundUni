@@ -25,25 +25,16 @@
 
 <body>
   <% if current_user %>
-    Logged in as <%= current_user.email %>
+    Welcome <%= current_user.name %>!
   <% else %>
     
-<% end %>
-<%puts "I am here"%>
-
-<% if session[:user_id] %>
-  <%= session[:user_id]%>
-  <% else %>
-     
 <% end %>
 
   <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, :id => "flash#{name}" %>
   <% end %>
 
-  
     <%= yield %>
-
 
 </body>
 </html>

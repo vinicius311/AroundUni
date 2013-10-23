@@ -44,12 +44,9 @@ class RegularEventsController < ApplicationController
   
   def update
       @regular_event = RegularEvent.find(params[:id])
-      if @regular_event.update(regular_event_params)
-      else
-      end
+      @regular_event.update(regular_event_params)
       @event = Event.find(params[:id])
-      redirect_to @event
-    
+      redirect_to @event    
   end
   
   def destroy
