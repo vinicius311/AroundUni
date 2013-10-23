@@ -30,7 +30,7 @@ def destroy
   session[:user_id] = nil
   session[:latitude] = nil
   session[:longitude] = nil      
-
+  session[:location] = nil  
   redirect_to root_url, :notice => "Logged out!"
 end
 
