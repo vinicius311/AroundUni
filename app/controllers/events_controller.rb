@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   end
   
   def index
-    if session[:location] 
+    if session[:location]
   
        @events = Event.all
         even = Event.new
