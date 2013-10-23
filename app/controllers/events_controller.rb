@@ -6,12 +6,22 @@ class EventsController < ApplicationController
   
   def index
     @regular_user = RegularUser.new
-    if session[:user_id] and session[:latitude] and session[:longitude]
-      param = session[:latitude].to_s + ","+ session[:longitude].to_s
-      @events = Event.near(param, 2, :order => "distance")
-    else
-      @events = Event.all
-    end
+ #   if session[:user_id] and session[:latitude] and session[:longitude]
+ #     param = session[:latitude].to_s + ","+ session[:longitude].to_s
+  #    @events = Event.near(param, 2, :order => "distance")
+  #  else
+  #    @events = Event.all
+  #  end
+  
+       @events = Event.all
+        even = Event.new
+        even.latitude = -33.8894586
+        even.longitude = 151.1913734
+        @events.each do |e|
+          e.distance = e.distance_to(even)
+        end
+        
+       
   end
   
   def create    

@@ -1,13 +1,3 @@
-<script>
-function showPosition(position)
-  {
-  var latlon=position.coords.latitude+","+position.coords.longitude;
-
-  var img_url=;
-  document.getElementById("mapholder").innerHTML="";
-  }
-</script>
-
 <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -69,6 +59,7 @@ function showPosition(position)
 			   latlon << "," 
 			   latlon << @event.geolocation.longitude.to_s %>
 			<img src="http://maps.googleapis.com/maps/api/staticmap?center=<%=latlon%>&zoom=18&size=250x250&markers=color:blue%7Clabel:S%7C<%=latlon%>&sensor=false">
+			<p><%=@event.geolocation.address%></p>
 		</div>
 	  </div>
       <hr>

@@ -7,8 +7,8 @@ def create
   if user  
     if user.verified
       session[:user_id] = user.id      
-      session[:latitude] = "-33.967496"
-      session[:longitude] = "-150.115419"
+      session[:latitude] = "-33.8894586"
+      session[:longitude] = "151.1913734"
       
       msg = "Logged in!"       
     else
