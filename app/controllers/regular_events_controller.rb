@@ -51,6 +51,16 @@ class RegularEventsController < ApplicationController
       redirect_to @event
     
   end
+  
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+    
+    redirect_to :root 
+    
+    
+  end
+
 
 private
   def regular_event_params
