@@ -7,7 +7,7 @@ def create
   if user  
     if user.verified
       session[:user_id] = user.id      
-      if session[:latitude].length > 3
+      if session[:latitude]
         session[:latitude] = params[:latitude] 
         session[:longitude] = params[:longitude] 
       else        
