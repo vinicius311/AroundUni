@@ -120,6 +120,7 @@
   
           <h2><%=event.name%></h2>
           <p><%=event.description%></p>
+          <h4>Distance: <%=event.distance.round(3)*1000%>m</h4>
            <p><%=event.latitude%></p>
            <p><%=event.longitude%></p>
           <p><a class="btn btn-default" href="/events/<%=event.id%>">View details &raquo;</a> </p>

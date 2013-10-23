@@ -15,8 +15,8 @@ class EventsController < ApplicationController
   
        @events = Event.all
         even = Event.new
-        even.latitude = -33.8894586
-        even.longitude = 151.1913734
+        even.latitude = -33.8916
+        even.longitude = 151.19134
         @events.each do |e|
           e.distance = e.distance_to(even)
         end
