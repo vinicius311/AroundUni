@@ -33,11 +33,26 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
   end
+  
+  def verify
+    event = Event.find(verifications_params)
+    verifications = Verification.where(user_id: session[:user_id], eventi_id: param[:id])
+    if !verifications
+      verification = Verification.new()
+      verification.user_id = session[:user_id]
+      verification.event_id = params[:id]
+      event.verification << verification
+      event.save 
+    end
+  end
 
 private
   def event_params
     #params.require(:event).permit(:name, :description)
     params.require(:event).permit(:name, :description, geolocation_attributes: [:latitude,:longitude])
-    
+  end
+  
+  def verification_params
+    params.permit(:event_id)    
   end
 end

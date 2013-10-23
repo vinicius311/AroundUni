@@ -11,7 +11,7 @@ class Event < ActiveRecord::Base
  
   
  has_one :geolocation 
- 
+ has_many :verification
  accepts_nested_attributes_for :geolocation
  
 end
