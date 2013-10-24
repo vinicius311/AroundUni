@@ -17,9 +17,6 @@ class RegularUsersController < ApplicationController
     else      
       redirect_to regular_users_sign_up_path, :notice => @regular_user.errors.first
     end
-      
-
-     
   end
 
   def sign_up_instructions
