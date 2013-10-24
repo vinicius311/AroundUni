@@ -1,30 +1,145 @@
-<h1>New Special Event</h1>
+<script>
+function getLocation()
+{
+  if (navigator.geolocation)
+  {
+    navigator.geolocation.watchPosition(setPosition);
+  }
+  else
+  {
+  	
+  }
+}
 
-<%= form_for(@special_event) do |f| %>
+function setPosition(position)
+{
+  document.getElementById("regular_event_geolocation_attributes_latitude").value = position.coords.latitude;
+  document.getElementById("regular_event_geolocation_attributes_longitude").value = position.coords.longitude;
+  
+  document.getElementById("regular_event_latitude").value = position.coords.latitude;
+  document.getElementById("regular_event_longitude").value = position.coords.longitude;	
+}
+</script>
 
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
+<script>
+$( document ).ready(function() {
+  getLocation();
+});
+</script>
+
+	
+<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">AroundUni</a></li>
+            <li><%= link_to "Log Out", "/log_out" %></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Events <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Post Event</a></li>
+                <li><a href="#">My Events</a></li>
+                <li><a href="#">My Verifications</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form accept-charset="UTF-8" action="<%= new_regular_event_path %>" class="navbar-form navbar-right" method="get">
+            <button type="submit" class="btn btn-success">Post Event</button> 
+         </form>
+                  
+                
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+  <h1>New Post</h1>
+  <hr class="seperate"/>
+  <div class = "sign_up_form"><!-- form container -->
+    <%= form_for(@regular_event) do |f| %>
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" placeholder="Event name" id="regular_event_name" name="regular_event[name]">
+      </div>
+        
+    <div class="form-group">
+      <label>Time</label>
+      <!-- time picker -->
+      <% time = Time.new %>
+      <div class="bfh-timepicker" data-time="<%=time.hour.to_s+":"+time.min.to_s%>">
+        <div class="input-group bfh-timepicker-toggle" data-toggle="bfh-timepicker">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+          <input type="text" class="form-control" readonly>
+        </div>
+        <div class="bfh-timepicker-popover">
+          <table class="table">  
+            <tbody>
+              <tr>
+                <td class="hour">
+                  <a class="next" href="#"><i class="glyphicon glyphicon-chevron-up"></i></a><br>
+                  <input type="text" readonly><br>
+                  <a class="previous" href="#"><i class="glyphicon glyphicon-chevron-down"></i></a>
+                </td>
+                <td class="separator">:</td>
+                <td class="minute">
+                  <a class="next" href="#"><i class="glyphicon glyphicon-chevron-up"></i></a><br>
+                  <input type="text" readonly><br>
+                  <a class="previous" href="#"><i class="glyphicon glyphicon-chevron-down"></i></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Location</label>
+        <input type="text" class="form-control" placeholder="Latitude" id="regular_event_latitude" name="regular_event[latitude]">
+        <input type="text" class="form-control" placeholder="Longitude" id="regular_event_longitude" name="regular_event[longitude]">
+      
+        <%= f.fields_for :geolocation do |ff| %>
+			<p> 	
+ 				<%= ff.text_field :latitude%>
+ 			</p>
+ 			<p>
+ 				<%= ff.text_field :longitude %><br> 	
+ 			</p> 
+ 		<%end%> 
+      </div>      
+      <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" rows="3" type="text" placeholder="Write Dexcription" id="regular_event_description" name="regular_event[description]"></textarea>
+      </div>
+      <button type="submit" class="btn btn-success">Post</button>
+ <% end %>
  
-  <p>
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </p>
- 
- 
- <%= f.fields_for :geolocation do |ff| %>
- <p>
- 	<%= ff.label :latitude %><br>
- 	<%= ff.text_field :latitude%>
- </p>
- <p>
- 	<%= ff.label :longitude %><br>
- 	<%= ff.text_field :longitude%>
- </p>
- 
- <%end%>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+      </div>
+
+      <hr>
+
+      <footer>
+        <p>AroundUni 2013</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../js/jquery.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+  
+
