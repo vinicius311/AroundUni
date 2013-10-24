@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user_id = session[:user_id]
     @comment.save
-    redirect_to "/events/"+@comment.event_id
+    redirect_to "/events/"+@comment.event_id.to_s
   end
   
 private

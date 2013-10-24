@@ -96,6 +96,7 @@
            <div class="row">
            	<div class="col-lg-4">
               <input type="text" class="form-control" placeholder="Post a comment!" id="comment_text" name="comment[text]">
+              <input type="hidden" class="form-control" placeholder="Post a comment!" id="comment_event_id" name="comment[event_id]" value=<%=@event.id%>>            
             </div>
             <div class="col-lg-2">            
               <button type="submit" class="btn btn-default">Post</button>
