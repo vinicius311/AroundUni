@@ -28,6 +28,7 @@ class RegularUsersController < ApplicationController
     user = User.verify_email(params[:verification_code])
     if user
         session[:user_id]= user.id #start session
+        session[:location] = false
         msg = "Email verified. Logged in."
     else
       msg = "Verification failed."
