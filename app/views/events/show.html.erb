@@ -93,24 +93,33 @@
   <li class="list-group-item">
   	 	<%= form_for(@comment) do |f| %>
   	 	  <div class="form-group">
-            <input type="text" class="form-control" placeholder="Post a comment!" id="comment_text" name="comment[text]">
-            <button type="submit" class="btn btn-success">Post Event</button>
+           <div class="row">
+           	<div class="col-lg-4">
+              <input type="text" class="form-control" placeholder="Post a comment!" id="comment_text" name="comment[text]">
+              <input type="hidden" class="form-control" placeholder="Post a comment!" id="comment_event_id" name="comment[event_id]" value=<%=@event.id%>>            
+            </div>
+            <div class="col-lg-2">            
+              <button type="submit" class="btn btn-default">Post</button>
+            </div>
           </div>
         <%end%>
     </li>
   	<%@event.comments.each do |comment|%>
    
   <li class="list-group-item">
-    <span class="badge"><%=User.find(comment.user_id).name%></span>
-    <span class="badge"><%=Comment.where(user_id: comment.user_id).count%></span>
+    <span class="badge"><%=Comment.where(user_id: comment.user_id).count%> comments</span>
+    <span class="badge"><%=User.find(comment.user_id).name%></span>    
     <%=comment.text %>
+    
+    
+    
   </li>
   <%end%>
 </ul>
 
   </div>	
       <footer>
-        <p>&copy; Company 2013</p>
+        <p>AroundUni 2013</p>
       </footer>
     </div> <!-- /container -->
 
