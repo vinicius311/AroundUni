@@ -6,15 +6,17 @@ class EventsController < ApplicationController
   
   def index
     if session[:location]
-  
-       @events = Event.all
-        even = Event.new
-        even.latitude = session[:latitude]
-        even.longitude = session[:longitude]
-        @events.each do |e|
-          e.distance = e.distance_to(even)
-        end
-    
+       
+      #create an geocoded object with user position.
+      fake_event = Event.new
+      fake_event.latitude = session[:latitude]
+      fake_event.longitude = session[:longitude]
+        
+      @events = Event.near(fake_event, 30000)
+      
+      @events.each do |e|
+        e.distance = e.distance_to(fake_event)
+      end    
     else
       @events = Event.all
     end
