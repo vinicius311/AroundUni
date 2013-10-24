@@ -8,6 +8,7 @@ class RegularUsersController < ApplicationController
   
   def create
     @regular_user = RegularUser.new(regular_user_params)
+    @regular_user.email.downcase!
     @regular_user.verification_code = SecureRandom.urlsafe_base64
     @regular_user.verified = false
     
