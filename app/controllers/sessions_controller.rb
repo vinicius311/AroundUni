@@ -33,6 +33,16 @@ def destroy
   redirect_to root_url, :notice => "Logged out!"
 end
 
+def update_location
+  if params[:latitude].length > 1
+    session[:latitude] = params[:latitude] 
+  end
+  if params[:longitude].length > 1
+    session[:longitude] = params[:longitude]
+  end
+  render "update_location"
+end
+
 private
 
   def login_params

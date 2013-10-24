@@ -7,12 +7,13 @@ AroundUni::Application.routes.draw do
   resources :sessions
   resources :comments
   
+  
   get 'regular_users/sign_up_instructions' => 'regular_users#sign_up_instructions', :as => "sign_up_instructions"
   get 'regular_users/confirm_email/:verification_code'  => 'regular_users#confirm_email', :as => "confirm_email"
 
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in"
-
+  post "update_location" => "sessions#update_location", :as => "update_location"
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
