@@ -31,8 +31,6 @@ def update_location
     session[:latitude] = params[:latitude] 
     session[:longitude] = params[:longitude]
     session[:location] = true
-  else
-    session[:location] = false
   end
   render "update_location"
 end
