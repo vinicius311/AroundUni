@@ -11,7 +11,25 @@ p, ol, ul, td {
   font-size: 13px;
   line-height: 18px;
 }
+a {
 
+  color: #000;
+
+  &:visited {
+
+    color: #fff;
+
+  }
+
+  &:hover {
+
+    color: #fff;
+
+    background-color: #000;
+
+  }
+
+}
 pre {
   background-color: #eee;
   padding: 10px;
