@@ -7,14 +7,18 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Around Uni</a>
+          <a class="navbar-brand" href="/events">Around Uni</a>
         </div>
         <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            
-            
-          </ul>
-          <%= form_tag({url: sessions_path }, {:class => 'navbar-form navbar-right'}) do %>
+        	
+        	
+        	
+
+          <form accept-charset="UTF-8" action="/sessions" class="navbar-form navbar-right" method="post">
+           <input name="utf8" value="✓" type="hidden">
+           <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+           <input name="latitude" id="latitude" value="x" type="hidden">
+           <input name="longitude" id="longitude" value="x" type="hidden">
            <div class="form-group">
               <input type="text" placeholder="Email" class="form-control" id="email" name="email">
             </div>
@@ -22,7 +26,8 @@
              <input type="password" placeholder="Password" class="form-control" id="password" name="password">
             </div>
             <button type="submit" value="Save changes" name="commit" class="btn btn-success">Sign in</button> 
-          <% end %>
+         </form>
+          
         </div><!--/.navbar-collapse -->
       </div>
     </div>
