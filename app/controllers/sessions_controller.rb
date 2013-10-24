@@ -3,17 +3,15 @@ def new
 end
 
 def create
-  user = User.authenticate(params[:email], params[:password])
+  user = User.authenticate(params[:email].downcase, params[:password])
   if user  
     if user.verified
       session[:user_id] = user.id      
-      if session[:latitude] != "x"
+      if params[:latitude] 
         session[:latitude] = params[:latitude] 
         session[:longitude] = params[:longitude]
         session[:location] = true 
-      else        
-        session[:latitude] = "-33.8894586"
-        session[:longitude] = "151.1913734"
+      else
         session[:location] = false
       end
       msg = "Logged in!"       

@@ -5,6 +5,7 @@ AroundUni::Application.routes.draw do
   resources :regular_events
   resources :special_events
   resources :sessions
+  resources :comments
   
   get 'regular_users/sign_up_instructions' => 'regular_users#sign_up_instructions', :as => "sign_up_instructions"
   get 'regular_users/confirm_email/:verification_code'  => 'regular_users#confirm_email', :as => "confirm_email"

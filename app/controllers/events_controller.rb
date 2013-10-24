@@ -5,8 +5,7 @@ class EventsController < ApplicationController
   end
   
   def index
-    if session[:location]
-       
+    if session[:location]       
       #create an geocoded object with user position.
       fake_event = Event.new
       fake_event.latitude = session[:latitude]
@@ -32,6 +31,7 @@ class EventsController < ApplicationController
   
   def show
     @event = Event.find(params[:id])
+    @comment = Comment.new
   end
   
   def verify
