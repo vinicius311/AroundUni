@@ -33,14 +33,9 @@ $( document ).ready(function() {
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">AroundUni</a>
+          <a class="navbar-brand active" href="events">AroundUni</a>
         </div>
         <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><%= link_to "Sign up", regular_users_sign_up_path %></li>
-            
-          </ul>
           <form accept-charset="UTF-8" action="/sessions" class="navbar-form navbar-right" method="post">
            <input name="utf8" value="✓" type="hidden">
            <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
@@ -64,10 +59,10 @@ $( document ).ready(function() {
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>Welcome to Around Uni</h1>
-        <p></p>
+
+        <p><h4>Want to know what's going on around campus?</h4></p>
        
-        <a href="<%= regular_users_sign_up_path %>" class="btn btn-info btn-lg" >Sign Up  </a>
+        <font color=white><a href="<%= regular_users_sign_up_path %>" class="btn btn-info btn-lg" >Sign Up  </a></font>
       </div>
     </div>
     
@@ -86,39 +81,27 @@ $( document ).ready(function() {
            <span class="icon-bar"></span>
           </button>
         </div>
-         <a class="navbar-brand" href="#">AroundUni</a>
+         <a class="navbar-brand" href="/">AroundUni</a>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><%= link_to "Log Out", "/log_out" %></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Events <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Post Event</a></li>
-                <li><a href="#"><%= link_to "My Events", regular_events_path %></a></li>
+                <li><a href="/regular_events"><%= link_to "My Events", regular_events_path %></a></li>
                 <li><a href="#">My Verifications</a></li>
                 <li class="divider"></li>
-                
               </ul>
             </li>
           </ul>
                <form accept-charset="UTF-8" action="<%= new_regular_event_path %>" class="navbar-form navbar-right" method="get">
             <button type="submit" class="btn btn-success">Post Event</button> 
-         </form>
-     
-                
+         </form>  
         </div><!--/.navbar-collapse -->
       </div>
     </div>
     
-
-    
-    
-    
 <%end%>
-
-
-
-
 
     <div class="container">
     	
@@ -132,16 +115,13 @@ $( document ).ready(function() {
     end
     %>
         <div class="col-lg-8 <%=style%>">
-  
           <h2><%=event.name%></h2>
           <%if session[:location]%>
           <h4>Distance: <%=event.distance.round(3)*1000%>m.</h4>
           <%end%>
           <h4><%=event.verifications.count%> users have verified this event.</h4>
           <p><a class="btn btn-default" href="/events/<%=event.id%>">View details &raquo;</a> </p>
-          
-          
-          
+
         </div> 
             
       <% end %>   
@@ -161,3 +141,30 @@ $( document ).ready(function() {
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="../../js/jquery.js"></script>
     <script src="../../js/bootstrap.min.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

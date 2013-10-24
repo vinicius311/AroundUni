@@ -6,26 +6,37 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">AroundUni</a>
+          <a class="navbar-brand" href="/events">AroundUni</a>
         </div>
+        
+        
+        
+        
+        
+
+        
+        
+        
+        
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><%= link_to "Sign up", regular_users_sign_up_path %></li>
             <li><%= link_to "Log Out", "/log_out" %></li>
-            <li><a href="#contact">Contact</a></li>
-            <li class="dropdown">
+            
+                                <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Events <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="#">Post Event</a></li>
-                <li><a href="#">My Events</a></li>
+                <li><a href="#"><%= link_to "My Events", regular_events_path %></a></li>
                 <li><a href="#">My Verifications</a></li>
                 <li class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
+                
               </ul>
+            </li>
+            
+            
+            
+            
+            <li class="dropdown">
             </li>
           </ul>
           <form accept-charset="UTF-8" action="<%= new_regular_event_path %>" class="navbar-form navbar-right" method="get">

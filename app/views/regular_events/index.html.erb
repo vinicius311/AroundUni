@@ -1,29 +1,138 @@
-<h1>Your Events</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Type</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<%if !session[:user_id]%>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">AroundUni</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><%= link_to "Sign up", regular_users_sign_up_path %></li>
+            
+          </ul>
+          <form accept-charset="UTF-8" action="/sessions" class="navbar-form navbar-right" method="post">
+           <input name="utf8" value="✓" type="hidden">
+           <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+           <div class="form-group">
+              <input type="text" placeholder="Email" class="form-control" id="email" name="email">
+            </div>
+            <div class="form-group">
+             <input type="password" placeholder="Password" class="form-control" id="password" name="password">
+            </div>
+            <button type="submit" value="Save changes" name="commit" class="btn btn-success">Sign in</button> 
+         </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+    
+    
+        
+    
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Welcome to Around Uni</h1>
+        <p></p>
+       
+        <a href="<%= regular_users_sign_up_path %>" class="btn btn-info btn-lg" >Sign Up  </a>
+      </div>
+    </div>
+    
+    
+    
+    
+    
+    
+ <%else%>
+<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+          </button>
+        </div>
+         <a class="navbar-brand" href="#">AroundUni</a>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><%= link_to "Log Out", "/log_out" %></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Events <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Post Event</a></li>
+                <li><a href="#"><%= link_to "My Events", regular_events_path %></a></li>
+                <li><a href="#">My Verifications</a></li>
+                <li class="divider"></li>
+                
+              </ul>
+            </li>
+          </ul>
+               <form accept-charset="UTF-8" action="<%= new_regular_event_path %>" class="navbar-form navbar-right" method="get">
+            <button type="submit" class="btn btn-success">Post Event</button> 
+         </form>
+     
+                
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+    
 
-  <tbody>
+    
+    
+    
+<%end%>
+
+
+<h1>My Events</h1>
+
+
+    <div class="container">
+    	
+      <!-- Example row of columns -->
+      <div class="row">
     <% @regular_events.each do |regular_event| %>
-      <tr>
-        <td><%= regular_event.name %></td>
-        <td><%= regular_event.description %></td>
-        <td><%= regular_event.type %></td>
-        <td><%= link_to 'Show', regular_event %></td>
-        <td><%= link_to 'Edit', edit_regular_event_path(regular_event) %></td>
-        <td><%= link_to 'Destroy', regular_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    
+        <%style = ""
+    if regular_event.verifications.count > 0
+    	style = "alert alert-success"
+    end
+    %>
+        <div class="col-lg-8 <%=style%>">
+  
+          <h2><%=regular_event.name%></h2>
+ 
+          <h4><%= regular_event.description %></h4>
 
-<br>
+          <p><a class="btn btn-default" href="/events/<%=regular_event.id%>">View details</a> </p>
+        <%= link_to 'Show', regular_event %>
+        <%= link_to 'Edit', edit_event_path(regular_event) %>
+        <%= link_to 'Destroy', regular_event, method: :delete, data: { confirm: 'Are you sure?' } %>
+          
+          
+          
+        </div> 
+            
+      <% end %>   
+      </div>
+
+
+      <hr>
+
+      <footer>
+        <p>AroundUni 2013</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../js/jquery.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>

@@ -7,28 +7,18 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="/events">Around Uni</a>
         </div>
         <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><%= link_to "Sign up", regular_users_sign_up_path %></li>
-            <li><a href="#contact">Contact</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
-          </ul>
-          <%= form_tag({url: sessions_path }, {:class => 'navbar-form navbar-right'}) do %>
+        	
+        	
+        	
+
+          <form accept-charset="UTF-8" action="/sessions" class="navbar-form navbar-right" method="post">
+           <input name="utf8" value="✓" type="hidden">
+           <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+           <input name="latitude" id="latitude" value="x" type="hidden">
+           <input name="longitude" id="longitude" value="x" type="hidden">
            <div class="form-group">
               <input type="text" placeholder="Email" class="form-control" id="email" name="email">
             </div>
@@ -36,7 +26,8 @@
              <input type="password" placeholder="Password" class="form-control" id="password" name="password">
             </div>
             <button type="submit" value="Save changes" name="commit" class="btn btn-success">Sign in</button> 
-          <% end %>
+         </form>
+          
         </div><!--/.navbar-collapse -->
       </div>
     </div>
@@ -53,30 +44,30 @@
     <div class="form-group">
 	  <input class="form-control" type="text" placeholder="Email"  id="regular_user_email" name="regular_user[email]"></input>
     </div>
-	<div class="form-group">
-	  <div id="logtype" name="logtype" class="btn-group" data-toggle="buttons-radio">
-        <button type="button" class="btn btn-info">Student</button>
-        <button type="button" class="btn btn-info">Partner</button>
-      </div>
-  	</div>
-    <br>
+
     <div class="form-group">
 	  <input class="form-control" placeholder="Password" id="regular_user_password" name="regular_user[password]" type="password"></input>
     </div>
     <div class="form-group">
-	  <input class="form-control" placeholder="Re-enter Password" id="regular_user_password_confirmation" name="regular_user[password_confirmation]" type="password"></input>
+	  <input class="form-control" placeholder="Confirm Password" id="regular_user_password_confirmation" name="regular_user[password_confirmation]" type="password"></input>
     </div>
     <div class="controls">
       <button type="submit" class="btn btn-success" >Create My Account</button>
     </div>
   </div>
   <%end%>
+  </br>
+ </br>
+ 
+ 
+ <p>Want to register a University society or become a commercial partner?</p>
+ <a href=<%=partner_users_sign_up_path=%>>Register as Partner</a>
 
 
       <hr>
 
       <footer>
-        <p>&copy; Company 2013</p>
+        <p>Around Uni 2013</p>
       </footer>
     </div> <!-- /container -->
 
