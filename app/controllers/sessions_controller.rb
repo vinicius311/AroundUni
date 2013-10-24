@@ -7,7 +7,7 @@ def create
   if user  
     if user.verified
       session[:user_id] = user.id      
-      if params[:latitude] 
+      if params[:latitude].length > 1 #verify presence of geolocation coordinates with params
         session[:latitude] = params[:latitude] 
         session[:longitude] = params[:longitude]
         session[:location] = true 
