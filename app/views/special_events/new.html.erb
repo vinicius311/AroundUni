@@ -54,7 +54,7 @@ $( document ).ready(function() {
               </ul>
             </li>
           </ul>
-          <form accept-charset="UTF-8" action="<%= new_regular_event_path %>" class="navbar-form navbar-right" method="get">
+          <form accept-charset="UTF-8" action="<%= new_special_event_path %>" class="navbar-form navbar-right" method="get">
             <button type="submit" class="btn btn-success">Post Event</button> 
          </form>
                   
@@ -69,10 +69,10 @@ $( document ).ready(function() {
   <h1>New Post</h1>
   <hr class="seperate"/>
   <div class = "sign_up_form"><!-- form container -->
-    <%= form_for(@regular_event) do |f| %>
+    <%= form_for(@special_event) do |f| %>
       <div class="form-group">
         <label>Name</label>
-        <input type="text" class="form-control" placeholder="Event name" id="regular_event_name" name="regular_event[name]">
+        <input type="text" class="form-control" placeholder="Event name" id="special_event_name" name="special_event[name]">
       </div>
         
     <div class="form-group">
@@ -107,8 +107,8 @@ $( document ).ready(function() {
       </div>
       <div class="form-group">
         <label>Location</label>
-        <input type="text" class="form-control" placeholder="Latitude" id="regular_event_latitude" name="regular_event[latitude]">
-        <input type="text" class="form-control" placeholder="Longitude" id="regular_event_longitude" name="regular_event[longitude]">
+        <input type="text" class="form-control" placeholder="Latitude" id="special_event_latitude" name="special_event[latitude]">
+        <input type="text" class="form-control" placeholder="Longitude" id="special_event_longitude" name="special_event[longitude]">
       
         <%= f.fields_for :geolocation do |ff| %>
 			<p> 	
@@ -121,7 +121,7 @@ $( document ).ready(function() {
       </div>      
       <div class="form-group">
         <label>Description</label>
-        <textarea class="form-control" rows="3" type="text" placeholder="Write Dexcription" id="regular_event_description" name="regular_event[description]"></textarea>
+        <textarea class="form-control" rows="3" type="text" placeholder="Write Dexcription" id="special_event_description" name="special_event[description]"></textarea>
       </div>
       <button type="submit" class="btn btn-success">Post</button>
  <% end %>

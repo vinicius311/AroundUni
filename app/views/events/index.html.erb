@@ -94,10 +94,16 @@ $( document ).ready(function() {
                 <li class="divider"></li>
               </ul>
             </li>
-          </ul>
+          </ul><%if session[:user_type] == "RegularUser"%>
                <form accept-charset="UTF-8" action="<%= new_regular_event_path %>" class="navbar-form navbar-right" method="get">
             <button type="submit" class="btn btn-success">Post Event</button> 
-         </form>  
+               </form>  
+
+            <%else%>
+             <form accept-charset="UTF-8" action="<%= new_special_event_path %>" class="navbar-form navbar-right" method="get">
+            <button type="submit" class="btn btn-success">Post Event</button> 
+               </form>  
+			<%end%>
         </div><!--/.navbar-collapse -->
       </div>
     </div>
