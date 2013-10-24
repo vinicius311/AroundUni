@@ -87,8 +87,11 @@
       </div>
       <div class="row">
   		<h4><%=@event.description%></h4>
-
       </div>
+    <div class="row">
+  		<h4><%=@event.start_time.strftime("%H:%M")%>-<%=@event.end_time.strftime("%H:%M")%></h4>
+      </div>
+      
       <div class="row">
 		<div id="mapholder">
 			<%latlon = @event.latitude.to_s

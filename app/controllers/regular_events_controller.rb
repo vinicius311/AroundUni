@@ -22,9 +22,11 @@ class RegularEventsController < ApplicationController
     #render text: params[:post].inspect
     @regular_event = RegularEvent.new(regular_event_params)
     @regular_event.user_id = session[:user_id]
+    @regular_event.latitude = session[:latitude]
+    @regular_event.longitude = session[:longitude]    
     @regular_event.save
-    @event = Event.find(@regular_event.id)
-    puts "eu to passando por aqui"
+    
+    
     redirect_to "/events/"+@regular_event.id.to_s
   end
   
@@ -53,7 +55,6 @@ class RegularEventsController < ApplicationController
 
 private
   def regular_event_params
-    #params.require(:event).permit(:name, :description)
-    params.require(:regular_event).permit(:name, :description,:latitude, :longitude, geolocation_attributes: [:latitude,:longitude])
+    params.require(:regular_event).permit(:name, :description,:latitude, :longitude, :start_time, :end_time)
   end
 end

@@ -27,8 +27,10 @@ class SpecialEventsController < ApplicationController
   def create
     @special_event = SpecialEvent.new(special_event_params)
     @special_event.user_id = session[:user_id]
+    @special_event.latitude = session[:latitude]
+    @special_event.longitude = session[:longitude]    
     @special_event.save
-    @event = Event.find(@special_event.id)
+  
     redirect_to "/events/"+@special_event.id.to_s
   end
    
@@ -51,7 +53,7 @@ class SpecialEventsController < ApplicationController
 
 private
   def special_event_params
-    params.require(:special_event).permit(:name, :description, geolocation_attributes: [:latitude,:longitude])
+    params.require(:special_event).permit(:name, :description, :address, :start_time, :end_time)
   end
 
 end
