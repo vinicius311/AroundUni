@@ -116,9 +116,9 @@ $( document ).ready(function() {
     end
     %>
         <div class="col-lg-8 <%=style%>">
-          <h4><%=event.name%> [<%=event.verifications.count%>]</h2>
+          <h4><%=event.name%> (<%=event.verifications.count%>)</h2>
           <%if session[:location]%>
-          <h5>Distance: <%=event.distance.round(3)*1000%>m.</h4>
+          <h5>Distance: <%=event.distance.round(3)*1000%> m</h4>
           <%end%>
           <p><a class="btn btn-default" href="/events/<%=event.id%>">View details &raquo;</a> </p>
 

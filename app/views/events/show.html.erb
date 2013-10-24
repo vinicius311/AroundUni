@@ -82,7 +82,7 @@
 			<%latlon = @event.geolocation.latitude.to_s
 			   latlon << "," 
 			   latlon << @event.geolocation.longitude.to_s %>
-			<img src="http://maps.googleapis.com/maps/api/staticmap?center=<%=latlon%>&zoom=18&size=250x250&markers=color:blue%7Clabel:S%7C<%=latlon%>&sensor=false">
+			<img src="http://maps.googleapis.com/maps/api/staticmap?center=<%=latlon%>&zoom=17&size=350x350&markers=color:blue%7Clabel:S%7C<%=latlon%>&sensor=false">
 			<p><%=@event.geolocation.address%></p>
 		</div>
 	  </div>
