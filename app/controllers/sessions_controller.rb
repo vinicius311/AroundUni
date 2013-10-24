@@ -7,13 +7,6 @@ def create
   if user  
     if user.verified
       session[:user_id] = user.id      
-      if params[:latitude].length > 1 #verify presence of geolocation coordinates with params
-        session[:latitude] = params[:latitude] 
-        session[:longitude] = params[:longitude]
-        session[:location] = true 
-      else
-        session[:location] = false
-      end
       session[:user_type] = user.type
       msg = "Logged in!"       
     else
@@ -34,11 +27,12 @@ def destroy
 end
 
 def update_location
-  if params[:latitude].length > 1
+  if params[:latitude].length > 1 and params[:longitude].length > 1
     session[:latitude] = params[:latitude] 
-  end
-  if params[:longitude].length > 1
     session[:longitude] = params[:longitude]
+    session[:location] = true
+  else
+    session[:location] = false
   end
   render "update_location"
 end
