@@ -9,6 +9,7 @@ class PartnerUsersController < ApplicationController
   
   def create
     @partner_user = PartnerUser.new(partner_user_params)
+    @partner_user.email.downcase!
     @partner_user.verification_code = SecureRandom.urlsafe_base64
     @partner_user.verified = false
     
