@@ -90,6 +90,13 @@
 
   <div class="row">
   	 <ul class="list-group">
+  <li class="list-group-item">
+  	 	<%= form_for(@comment) do |f| %>
+  	 	  <div class="form-group">
+            <input type="text" class="form-control" placeholder="Post a comment!" id="comment_text" name="comment[text]">
+        </div>
+        <%end%>
+    </li>
   	<%@event.comments.each do |comment|%>
    
   <li class="list-group-item">
