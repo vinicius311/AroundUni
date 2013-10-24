@@ -54,9 +54,9 @@
   		<h1><%=@event.name%></h1>
   		
    	 <%if session[:user_id]%>  
-   	 <p>ddsadasd</p>
+
   		<%if @event.user_id == session[:user_id]%>
-  		<p>ddsadasd</p>
+
   		   <%if @event.type == "RegularEvent"%>  		  
   		    <h3><a href="/regular_events/<%=@event.id%>/edit">Edit</a></h3>
   		    <h3><a data-confirm="Are you sure?" data-method="delete" href="/regular_events/<%=@event.id%>" rel="nofollow">Delete</a></h3>  		    

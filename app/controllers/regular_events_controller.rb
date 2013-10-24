@@ -52,10 +52,7 @@ class RegularEventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
-    
-    redirect_to :root 
-    
-    
+    redirect_to "/regular_events" 
   end
 
 

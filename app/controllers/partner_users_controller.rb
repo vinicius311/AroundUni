@@ -1,10 +1,10 @@
 class PartnerUsersController < ApplicationController
   def sign_up
-    @partner_user = ParnerUser.new
+    @partner_user = PartnerUser.new
   end
   
   def create
-    @partner_user = ParnerUser.new(partner_user_params)
+    @partner_user = PartnerUser.new(partner_user_params)
     @partner_user.save
     
     redirect_to @partner_user

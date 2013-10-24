@@ -44,24 +44,24 @@
     <div class="form-group">
 	  <input class="form-control" type="text" placeholder="Email"  id="regular_user_email" name="regular_user[email]"></input>
     </div>
-	<div class="form-group">
-	  <div id="logtype" name="logtype" class="btn-group" data-toggle="buttons-radio">
-        <button type="button" class="btn btn-info">Student</button>
-        <button type="button" class="btn btn-info">Partner</button>
-      </div>
-  	</div>
-    <br>
+
     <div class="form-group">
 	  <input class="form-control" placeholder="Password" id="regular_user_password" name="regular_user[password]" type="password"></input>
     </div>
     <div class="form-group">
-	  <input class="form-control" placeholder="Re-enter Password" id="regular_user_password_confirmation" name="regular_user[password_confirmation]" type="password"></input>
+	  <input class="form-control" placeholder="Confirm Password" id="regular_user_password_confirmation" name="regular_user[password_confirmation]" type="password"></input>
     </div>
     <div class="controls">
       <button type="submit" class="btn btn-success" >Create My Account</button>
     </div>
   </div>
   <%end%>
+  </br>
+ </br>
+ 
+ 
+ <p>Want to register a University society or become a commercial partner?</p>
+ <a href=<%=partner_users_sign_up_path=%>>Register as Partner</a>
 
 
       <hr>
