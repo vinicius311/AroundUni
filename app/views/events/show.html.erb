@@ -100,7 +100,6 @@
   	<%@event.comments.each do |comment|%>
    
   <li class="list-group-item">
-    <span class="badge"><%=Comment.where(user_id: comment.user_id).count%> comments</span>
     <span class="badge"><%=User.find(comment.user_id).name%></span>    
     <%=comment.text %>
     
