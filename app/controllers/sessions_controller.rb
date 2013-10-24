@@ -14,6 +14,7 @@ def create
       else
         session[:location] = false
       end
+      session[:user_type] = user.type
       msg = "Logged in!"       
     else
       msg = "Email not verified. Please verify your email account."      
