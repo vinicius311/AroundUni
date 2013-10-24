@@ -40,13 +40,9 @@ class PartnerUsersController < ApplicationController
   
 
 
-private
+
   def partner_user_params
-    params.require(:partner_user).permit(:name, :email)
-  end
-  
-  def regular_user_params
-    params.require(:partner_user).permit(:name, :email, :gender, :date_of_birth, :password, :password_confirmation, :verification_code) 
+    params.require(:partner_user).permit(:name, :email, :gender, :date_of_birth, :password, :password_confirmation, :verification_code, :organisation) 
   end
 
 end

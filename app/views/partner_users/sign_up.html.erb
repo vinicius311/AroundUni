@@ -38,8 +38,11 @@
 	<hr class="seperate"/>
   <%= form_for(@partner_user) do |f| %>
   <div class="sign_up_form">
-    <div class="form-group">
+  	<div class="form-group">
       <input class="form-control" type="text" placeholder="Name"id="partner_user_name" name="partner_user[name]" type="text"></input>
+	</div>
+    <div class="form-group">
+      <input class="form-control" type="text" placeholder="Company/Organisation"id="partner_user_organisation" name="partner_user[organisation]" type="text"></input>
 	</div>
     <div class="form-group">
 	  <input class="form-control" type="text" placeholder="Email"  id="partner_user_email" name="partner_user[email]"></input>
