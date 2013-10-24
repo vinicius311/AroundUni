@@ -93,7 +93,19 @@ $( document ).ready(function() {
 
     <%= yield %>
 
-<div id="lero" name="lero" class="lero"></div>
+<div id="lero" name="lero" class="lero">
+    <% if session[:location] %>
+    GOOOD
+    <%=session[:latitude]%>
+    <%=session[:longitude]%>
+    <% else %>
+    BAAAD
+     <%=session[:latitude]%>
+    <%=session[:longitude]%>
+    <%end%>
+	
+
+</div>
 </body>
 </html>
 
