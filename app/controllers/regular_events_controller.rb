@@ -30,7 +30,8 @@ class RegularEventsController < ApplicationController
   
   def destroy
     @regular_event = RegularEvent.find(params[:id])
-     @regular_event.destroy  
+     @regular_event.destroy 
+     redirect_to "/regular_events" 
   end
   
   
@@ -49,12 +50,6 @@ class RegularEventsController < ApplicationController
       redirect_to @event    
   end
   
-  def destroy
-    @event = Event.find(params[:id])
-    @event.destroy
-    redirect_to "/regular_events" 
-  end
-
 
 private
   def regular_event_params
