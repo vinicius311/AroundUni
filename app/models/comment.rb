@@ -1,6 +1,6 @@
 class Comment < ActiveRecord::Base
   
-  attr_accessor :text 
+  attr_accessible :text, :user_id 
   
   validates :text, presence: true  
   

@@ -43,9 +43,7 @@
   		<h1><%=@event.name%></h1>
   		
    	 <%if session[:user_id]%>  
-   	 <p>ddsadasd</p>
   		<%if @event.user_id == session[:user_id]%>
-  		<p>ddsadasd</p>
   		   <%if @event.type == "RegularEvent"%>  		  
   		    <h3><a href="/regular_events/<%=@event.id%>/edit">Edit</a></h3>
   		    <h3><a data-confirm="Are you sure?" data-method="delete" href="/regular_events/<%=@event.id%>" rel="nofollow">Delete</a></h3>  		    
@@ -79,6 +77,19 @@
 	  </div>
       <hr>
 
+  <div class="row">
+  	 <ul class="list-group">
+  	<%@event.comments.each do |comment|%>
+   
+  <li class="list-group-item">
+    <span class="badge"><%=User.find(comment.user_id).name%></span>
+    <span class="badge"><%=Comment.where(user_id: comment.user_id).count%></span>
+    <%=comment.text %>
+  </li>
+  <%end%>
+</ul>
+
+  </div>	
       <footer>
         <p>&copy; Company 2013</p>
       </footer>
@@ -90,8 +101,3 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="../../js/jquery.js"></script>
     <script src="../../js/bootstrap.min.js"></script>
-  
-
-
-
-<p>
