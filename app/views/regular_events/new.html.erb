@@ -13,9 +13,7 @@ function getLocation()
 
 function setPosition(position)
 {
-  document.getElementById("regular_event_geolocation_attributes_latitude").value = position.coords.latitude;
-  document.getElementById("regular_event_geolocation_attributes_longitude").value = position.coords.longitude;
-  
+
   document.getElementById("regular_event_latitude").value = position.coords.latitude;
   document.getElementById("regular_event_longitude").value = position.coords.longitude;	
 }
@@ -36,10 +34,11 @@ $( document ).ready(function() {
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
+        <a class="navbar-brand active" href="events">AroundUni</a>
         </div>
+        
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">AroundUni</a></li>
             <li><%= link_to "Log Out", "/log_out" %></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Events <b class="caret"></b></a>
@@ -110,14 +109,6 @@ $( document ).ready(function() {
         <input type="text" class="form-control" placeholder="Latitude" id="regular_event_latitude" name="regular_event[latitude]">
         <input type="text" class="form-control" placeholder="Longitude" id="regular_event_longitude" name="regular_event[longitude]">
       
-        <%= f.fields_for :geolocation do |ff| %>
-			<p> 	
- 				<%= ff.text_field :latitude%>
- 			</p>
- 			<p>
- 				<%= ff.text_field :longitude %><br> 	
- 			</p> 
- 		<%end%> 
       </div>      
       <div class="form-group">
         <label>Description</label>
