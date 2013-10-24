@@ -25,18 +25,18 @@
                 
               </ul>
             </li>
-            
-            
-            
-            
-            <li class="dropdown">
-            </li>
+            <li class="dropdown"></li>
           </ul>
-          <form accept-charset="UTF-8" action="<%= new_regular_event_path %>" class="navbar-form navbar-right" method="get">
-            <button type="submit" class="btn btn-success">Post Event</button> 
-         </form>
-                  
-                
+           <%if session[:user_type] == "RegularUser"%>
+               <form accept-charset="UTF-8" action="<%= new_regular_event_path %>" class="navbar-form navbar-right" method="get">
+            		<button type="submit" class="btn btn-success">Post Event</button> 
+               </form>  
+
+            <%else%>
+             <form accept-charset="UTF-8" action="<%= new_special_event_path %>" class="navbar-form navbar-right" method="get">
+            	<button type="submit" class="btn btn-success">Post Event</button> 
+             </form>  
+			<%end%>
         </div><!--/.navbar-collapse -->
       </div>
     </div>
@@ -72,11 +72,11 @@
       </div>
       <div class="row">
 		<div id="mapholder">
-			<%latlon = @event.geolocation.latitude.to_s
+			<%latlon = @event.latitude.to_s
 			   latlon << "," 
-			   latlon << @event.geolocation.longitude.to_s %>
+			   latlon << @event.longitude.to_s %>
 			<img src="http://maps.googleapis.com/maps/api/staticmap?center=<%=latlon%>&zoom=17&size=350x350&markers=color:blue%7Clabel:S%7C<%=latlon%>&sensor=false">
-			<p><%=@event.geolocation.address%></p>
+			<p><%=@event.address%></p>
 		</div>
 	  </div>
       <hr>
