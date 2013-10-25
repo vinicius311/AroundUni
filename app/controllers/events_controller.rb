@@ -28,14 +28,16 @@ class EventsController < ApplicationController
   end
   
   def verify
-    event = Event.find(verification_params[:event_id])
-    verifications = event.verifications.where(user_id: session[:user_id])
-    if verifications.count == 0      
-      verification = Verification.new()
-      verification.user_id = session[:user_id]
-      verification.event_id = params[:event_id]
-      event.verifications << verification
-      event.save 
+    if session[:user_id]
+      event = Event.find(verification_params[:event_id])
+      verifications = event.verifications.where(user_id: session[:user_id])
+      if verifications.count == 0      
+        verification = Verification.new()
+        verification.user_id = session[:user_id]
+        verification.event_id = params[:event_id]
+        event.verifications << verification
+        event.save 
+      end
     end
     redirect_to "/events/"+params[:event_id]
   end
