@@ -80,7 +80,6 @@ $( document ).ready(function() {
 
 <div id="warn" name="warn" class="container">
     <% if session[:location] %>
-    GPS POSITION >> Lat:<%=session[:latitude]%> Lon: <%=session[:longitude]%>
     <% else %>
     PROBLEMS WITH GPS SIGNAL: Verify your browser permission and reload the page.
     <%end%>    
