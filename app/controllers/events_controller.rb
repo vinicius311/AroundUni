@@ -11,13 +11,15 @@ class EventsController < ApplicationController
       fake_event.latitude = session[:latitude]
       fake_event.longitude = session[:longitude]
         
-      @events = Event.near(fake_event, 30000)
-      
+      @events = Event.near(fake_event, 5000)
+      @events = @events.where("start_time = ? AND end_time >= ?", Date.today, Date.today)
       @events.each do |e|
         e.distance = e.distance_to(fake_event)
       end    
     else
       @events = Event.all
+      @events = @events.where("start_time = ? AND end_time >= ?", Date.today, Date.today)      
+      
     end
   end
   
