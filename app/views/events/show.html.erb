@@ -141,9 +141,9 @@
 		</div>
 	  </div>
       <hr>
-
+<%session[:user_id]%>
   <div class="row">
-  	 <ul class="list-group">
+  <ul class="list-group">
   <li class="list-group-item">
   	 	<%= form_for(@comment) do |f| %>
   	 	  <div class="form-group">
@@ -171,6 +171,7 @@
 </ul>
 
   </div>	
+  <%end%>
       <footer>
         <p>AroundUni 2013</p>
       </footer>
