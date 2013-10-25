@@ -49,49 +49,16 @@
         <label>Name</label>
         <input type="text" class="form-control" placeholder="Event name" id="regular_event_name" name="regular_event[name]" value="<%=@regular_event.name%>">
       </div>
+     <div class="form-group">
+      <label>Start Time</label>      
+       <%= f.time_select :start_time %>
+       </div>
       <div class="form-group">
-        
-    <div class="form-group">
-      <label>Time</label>
+      <label>End Time</label>
       <!-- time picker -->
-      <% time = Time.new %>
-      <div class="bfh-timepicker" data-time="<%=time.hour.to_s+":"+time.min.to_s%>">
-        <div class="input-group bfh-timepicker-toggle" data-toggle="bfh-timepicker">
-          <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-          <input type="text" class="form-control" readonly>
-        </div>
-        <div class="bfh-timepicker-popover">
-          <table class="table">  
-            <tbody>
-              <tr>
-                <td class="hour">
-                  <a class="next" href="#"><i class="glyphicon glyphicon-chevron-up"></i></a><br>
-                  <input type="text" readonly><br>
-                  <a class="previous" href="#"><i class="glyphicon glyphicon-chevron-down"></i></a>
-                </td>
-                <td class="separator">:</td>
-                <td class="minute">
-                  <a class="next" href="#"><i class="glyphicon glyphicon-chevron-up"></i></a><br>
-                  <input type="text" readonly><br>
-                  <a class="previous" href="#"><i class="glyphicon glyphicon-chevron-down"></i></a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          </div>
-        </div>
+      <%= f.time_select :end_time %>
       </div>
-      <div class="form-group">
-        <label>Location</label>
-        <%= f.fields_for :geolocation do |ff| %>
-			<p> 	
- 				<%= ff.text_field :latitude%>
- 			</p>
- 			<p>
- 				<%= ff.text_field :longitude %><br> 	
- 			</p> 
- 		<%end%> 
-      </div>      
+      
       <div class="form-group">
         <label>Description</label>
         <textarea class="form-control" rows="3" type="text" placeholder="Write Dexcription" id="regular_event_description" name="regular_event[description]"><%=@regular_event.description%></textarea>

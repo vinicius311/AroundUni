@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   def new
     @event = Event.new
-    @event.geolocation = Geolocation.new
+    
   end
   
   def index
@@ -49,8 +49,7 @@ class EventsController < ApplicationController
 
 private
   def event_params
-    #params.require(:event).permit(:name, :description)
-    params.require(:event).permit(:name, :description, geolocation_attributes: [:latitude,:longitude])
+        params.require(:event).permit(:name, :description)
   end
   
   def verification_params

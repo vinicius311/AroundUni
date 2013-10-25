@@ -15,7 +15,7 @@ class RegularEventsController < ApplicationController
       redirect_to :root
     end
     @regular_event = RegularEvent.new
-    @regular_event.geolocation = Geolocation.new
+   
   end
   
   def create

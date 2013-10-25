@@ -5,7 +5,7 @@ class Event < ActiveRecord::Base
  
  attr_accessor :distance
  
- validates_presence_of :name, :description, :latitude, :longitude, :start_time, :end_time
+ validates_presence_of :name, :description, :start_time, :end_time
  
  geocoded_by :address
  reverse_geocoded_by :latitude, :longitude 

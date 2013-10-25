@@ -19,7 +19,7 @@ class SpecialEventsController < ApplicationController
       redirect_to :root
     end
     @special_event = SpecialEvent.new
-    @special_event.geolocation = Geolocation.new
+    
   end
   
   
