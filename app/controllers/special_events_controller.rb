@@ -38,7 +38,7 @@ class SpecialEventsController < ApplicationController
   end
   
     def destroy
-    @regular_event = SpecialEvent.find(params[:id])
+    @special_event = SpecialEvent.find(params[:id])
      @special_event.destroy 
      redirect_to "/special_events" 
   end
