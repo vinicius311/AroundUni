@@ -47,13 +47,16 @@ class SpecialEventsController < ApplicationController
     end
    
     @special_event = SpecialEvent.find(params[:id])
-    if session[:user_id] == @event.user_id
-      @Special_event.update(special_event_params)
+    if session[:user_id] == @special_event.user_id
+      @special_event.update(special_event_params)
     end
     @event = Event.find(params[:id])
-    redirect_to @event        
+    redirect_to "/events/"+@special_event.id.to_s
   end
-
+  
+  def edit
+    @special_event = SpecialEvent.find(params[:id])
+  end
 private
   def special_event_params
     params.require(:special_event).permit(:name, :description, :address, :start_time, :end_time)
