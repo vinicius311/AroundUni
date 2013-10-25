@@ -70,24 +70,14 @@
           <ul class="nav navbar-nav">
             <li><%= link_to "Log Out", "/log_out" %></li>
          <%if session[:user_type] == "RegularUser"%>
-          
-          
                 <li><a href="/regular_events">My Events</a></li>
-
-          
             <%end%>
-            
           <%if session[:user_type] == "PartnerUser"%>
-          
-          
                 <li><a href="/special_events">My Events</a></li>
-
             <%end%>
                <form accept-charset="UTF-8" action="<%= new_special_event_path %>" class="navbar-form navbar-right" method="get">
             <button type="submit" class="btn btn-success">Post Event</button> 
-         </form>
-     
-                
+         </form>   
         </div><!--/.navbar-collapse -->
       </div>
     </div>
