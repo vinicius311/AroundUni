@@ -12,6 +12,9 @@ class SpecialEventsController < ApplicationController
       redirect_to :root
     end
     @special_event = SpecialEvent.new
+    @special_event.start_time = DateTime.now
+    @special_event.end_time = DateTime.now
+
   end
   
   def create

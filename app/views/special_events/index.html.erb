@@ -73,7 +73,6 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Events <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="/special_events">My Events</a></li>
-                <li><a href="#">My Verifications</a></li>
                 
               </ul>
             </li>
@@ -115,11 +114,6 @@
           <h4><%= special_event.description %></h4>
 
           <p><a class="btn btn-default" href="/events/<%=special_event.id%>">View details</a> </p>
-        <%= link_to 'Show', special_event %>
-        <%= link_to 'Edit', edit_event_path(special_event) %>
-        <%= link_to 'Destroy', special_event, method: :delete, data: { confirm: 'Are you sure?' } %>
-          
-          
           
         </div> 
             
