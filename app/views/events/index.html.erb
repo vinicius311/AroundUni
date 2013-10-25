@@ -125,8 +125,10 @@
     
     <%
     style = ""
+    label = ""
     if event.type == "SpecialEvent"
     	style = "alert alert-info"
+    	label = "<span class='label label-info'>Partner Event</span>"
     else
       if event.verifications.count > 0
     	style = "alert alert-success"
@@ -134,9 +136,9 @@
     end
     %>
         <div class="col-lg-8 <%=style%>">
-          <h4><%=event.name%> (<%=event.verifications.count%>)</h2>
+          <h4><%=event.name%> (<%=event.verifications.count%>) <%=label%> </h4>
           <%if session[:location]%>
-          <h5>Distance: <%=event.distance.round(3)*1000%> m</h4>
+          <h5>Distance: <%=event.distance.round(3)*1000%> m</h5>
           <%end%>
           <p><a class="btn btn-default" href="/events/<%=event.id%>">View details &raquo;</a> </p>
 
