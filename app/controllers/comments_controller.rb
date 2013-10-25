@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
   def create    
-  #  render text: params[:post].inspect
+    if session[:user_id] == nil
+      redirect_to :root
+    end
     @comment = Comment.new(comment_params)
     @comment.user_id = session[:user_id]
     @comment.save

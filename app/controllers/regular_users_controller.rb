@@ -21,7 +21,7 @@ class RegularUsersController < ApplicationController
   end
 
   def sign_up_instructions
-  
+  #just renders the page
   end
   
   def confirm_email    
