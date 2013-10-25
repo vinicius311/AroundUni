@@ -1,4 +1,48 @@
 
+<script>
+ $(function() {
+    $(".new_regular_user").validate({
+    	// Specify the validation rules
+        rules: {
+            "regular_user[name]": "required",
+            
+            "regular_user[email]": {
+                required: true,
+                email: true
+            },
+            "regular_user[password]": {
+                required: true,
+                minlength: 5
+            },
+            "regular_user[password_confirmation]":{
+            	required: true
+            }
+          },
+
+        // Specify the validation error messages
+        messages: {
+            "regular_user[name]": "Please enter name",
+           
+            
+            "regular_user[email]": {
+               required: "Please enter your email address",
+            	email: "Please enter a valid email address"
+            },
+            "regular_user[password]": {
+              required: "Please provide a password",
+                minlength: "Your password must be at least 5 characters long"
+            },
+            "regular_user[password_confirmation]":{
+            	required: "Please re-enter your password"
+            }
+        },
+        
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+ });
+</script>
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
