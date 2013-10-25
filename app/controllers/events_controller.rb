@@ -18,6 +18,8 @@ class EventsController < ApplicationController
       end    
     else
       @events = Event.all
+      @events = @events.where("start_time = ? AND end_time >= ?", Date.today, Date.today)      
+      
     end
   end
   
