@@ -5,13 +5,14 @@ class Event < ActiveRecord::Base
  
  attr_accessor :distance
  
+ validates_presence_of :name, :description, :latitude, :longitude, :start_time, :end_time
+ 
  geocoded_by :address
  reverse_geocoded_by :latitude, :longitude 
  after_validation :geocode, :reverse_geocode 
   
- has_one :geolocation 
+ 
  has_many :verifications
  has_many :comments
- accepts_nested_attributes_for :geolocation
  
 end

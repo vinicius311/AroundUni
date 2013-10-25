@@ -3,9 +3,7 @@ class User < ActiveRecord::Base
   
   attr_accessible :name, :gender, :email, :date_of_birth, :date_of_birth, :type, :password, :password_confirmation, :organisation
   
-  #validates :name, :email, :date_of_birth, presence: true
-  #validates :email, uniqueness: true
-  
+
   has_many :events
   has_many :comments
   has_many :verifications
