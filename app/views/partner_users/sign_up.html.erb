@@ -1,4 +1,48 @@
+<script>
+ $(function() {
+    $(".new_partner_user").validate({
+    	// Specify the validation rules
+        rules: {
+            "partner_user[name]": "required",
+            "partner_user[organisation]":"required",
+            
+            "partner_user[email]": {
+                required: true,
+                email: true
+            },
+            "partner_user[password]": {
+                required: true,
+                minlength: 5
+            },
+            "partner_user[password_confirmation]":{
+            	required: true
+            }
+          },
 
+        // Specify the validation error messages
+        messages: {
+            "partner_user[name]": "Please enter name",
+           
+            
+            "partner_user[email]": {
+               required: "Please enter your email address",
+            	email: "Please enter a valid email address"
+            },
+            "partner_user[password]": {
+              required: "Please provide a password",
+                minlength: "Your password must be at least 5 characters long"
+            },
+            "partner_user[password_confirmation]":{
+            	required: "Please re-enter your password"
+            }
+        },
+        
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+ });
+ </script>
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
