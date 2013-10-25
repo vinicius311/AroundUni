@@ -27,8 +27,7 @@ class SpecialEventsController < ApplicationController
   def create
     @special_event = SpecialEvent.new(special_event_params)
     @special_event.user_id = session[:user_id]
-    @special_event.latitude = session[:latitude]
-    @special_event.longitude = session[:longitude]    
+    
     @special_event.save
   
     redirect_to "/events/"+@special_event.id.to_s
