@@ -68,10 +68,11 @@
    	 <%if session[:user_id]%>  
   		<%if @event.user_id == session[:user_id]%>
   		   <%if @event.type == "RegularEvent"%>  		  
-  		    <h3><a href="/regular_events/<%=@event.id%>/edit">Edit</a></h3>
-  		    <h3><a data-confirm="Are you sure?" data-method="delete" href="/regular_events/<%=@event.id%>" rel="nofollow">Delete</a></h3>  		    
+  		    <h4><a href="/regular_events/<%=@event.id%>/edit">Edit</a></h4>
+  		    <h4><a data-confirm="Are you sure?" data-method="delete" href="/regular_events/<%=@event.id%>" rel="nofollow">Delete</a></h4>  		    
   		   <%else%>
-  		    <h3><a href="/special_events/<%=@event.id%>/edit">Edit</a></h3>
+  		    <h4><a href="/special_events/<%=@event.id%>/edit">Edit</a></h4>
+  		    <h4><a data-confirm="Are you sure?" data-method="delete" href="/special_events/<%=@event.id%>" rel="nofollow">Delete</a></h4>  		    
   		   <%end%>
         <%else%>
           <%if @event.verifications.where(user_id: session[:user_id]).count == 0%>
