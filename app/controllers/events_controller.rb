@@ -19,15 +19,8 @@ class EventsController < ApplicationController
     else
       @events = Event.all
     end
-          
-       
   end
   
-  def create    
-  #  render text: params[:post].inspect
-    @event = Event.new(event_params)
-    redirect_to @event
-  end
   
   def show
     @event = Event.find(params[:id])
