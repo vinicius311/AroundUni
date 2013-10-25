@@ -19,7 +19,6 @@ class RegularEventsController < ApplicationController
   end
   
   def create
-    #render text: params[:post].inspect
     @regular_event = RegularEvent.new(regular_event_params)
     @regular_event.user_id = session[:user_id]
     @regular_event.latitude = session[:latitude]
