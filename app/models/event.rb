@@ -1,6 +1,6 @@
 class Event < ActiveRecord::Base
   
- attr_accessible :name, :description, :geolocation_attributes, :address, :latitude, :longitude, :start_time, :end_time
+ attr_accessible :name, :description, :address, :latitude, :longitude, :start_time, :end_time
  attr_accessible :distance
  
  attr_accessor :distance
