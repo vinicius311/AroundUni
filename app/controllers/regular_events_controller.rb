@@ -47,8 +47,7 @@ class RegularEventsController < ApplicationController
   def update
       @regular_event = RegularEvent.find(params[:id])
       @regular_event.update(regular_event_params)
-      @event = Event.find(params[:id])
-      redirect_to @event    
+    redirect_to "/events/"+@regular_event.id.to_s
   end
   
 
