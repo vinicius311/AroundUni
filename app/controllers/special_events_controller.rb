@@ -45,11 +45,14 @@ class SpecialEventsController < ApplicationController
 
   def update
       @special_event = SpecialEvent.find(params[:id])
-      @Special_event.update(special_event_params)
+      @special_event.update(special_event_params)
       @event = Event.find(params[:id])
       redirect_to @event    
   end
-
+  
+  def edit
+    @special_event = SpecialEvent.find(params[:id])
+  end
 private
   def special_event_params
     params.require(:special_event).permit(:name, :description, :address, :start_time, :end_time)
