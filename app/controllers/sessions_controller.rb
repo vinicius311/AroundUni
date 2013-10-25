@@ -19,10 +19,9 @@ def create
 end
 
 def destroy
-  session[:user_id] = nil
-  session[:latitude] = nil
-  session[:longitude] = nil      
-  session[:location] = nil  
+  session[:user_id] = nil      
+  session[:location] = nil
+  session[:user_type] =nil  
   redirect_to root_url, :notice => "Logged out!"
 end
 

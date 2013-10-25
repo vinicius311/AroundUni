@@ -93,17 +93,12 @@ $( document ).ready(function() {
 
     <%= yield %>
 
-<div id="lero" name="lero" class="lero">
+<div id="warn" name="warn" class="warn">
     <% if session[:location] %>
-    GOOOD
-    <%=session[:latitude]%>
-    <%=session[:longitude]%>
+    GPS POSITION >> Lat:<%=session[:latitude]%> Lon: <%=session[:longitude]%>
     <% else %>
-    BAAAD
-     <%=session[:latitude]%>
-    <%=session[:longitude]%>
-    <%end%>
-    
+    PROBLEMS WITH GPS SIGNAL: Verify your browser permission and reload the page.
+    <%end%>    
     <%= session[:user_type]%>
           
           
