@@ -123,9 +123,14 @@
       <div class="row">
     <% @events.each do |event| %>
     
-    <%style = ""
-    if event.verifications.count > 0
+    <%
+    style = ""
+    if event.type == "SpecialEvent"
+    	style = "alert alert-default"
+    else
+      if event.verifications.count > 0
     	style = "alert alert-success"
+      end
     end
     %>
         <div class="col-lg-8 <%=style%>">
