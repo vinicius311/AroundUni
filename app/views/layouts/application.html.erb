@@ -72,28 +72,13 @@ $( document ).ready(function() {
    
 </script>
 
-  <% if current_user %>
-    Welcome <%= current_user.name %>!
-    <%= session[:latitude] %>
-    <%= session[:longitude] %>
-
-    <% if session[:location] %>
-    GOOOD
-    <% else %>
-    BAAAD
-    <%end%>
-    
-    <% else %>
-    
-<% end %>
-
-  <% flash.each do |name, msg| %>
+    <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, :id => "flash#{name}" %>
   <% end %>
 
     <%= yield %>
 
-<div id="warn" name="warn" class="warn">
+<div id="warn" name="warn" class="container">
     <% if session[:location] %>
     GPS POSITION >> Lat:<%=session[:latitude]%> Lon: <%=session[:longitude]%>
     <% else %>
@@ -101,9 +86,7 @@ $( document ).ready(function() {
     <%end%>    
     <%= session[:user_type]%>
           
-          
-	
-
+  
 </div>
 </body>
 </html>
